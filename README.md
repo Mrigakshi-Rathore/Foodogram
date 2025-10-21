@@ -58,13 +58,12 @@
 git clone https://github.com/Mrigakshi-Rathore/Foodogram.git
 cd Foodogram
 ```
-
-
-⸻
+---
 
 ## 📸 Screenshots / Demo
 
 <div align="center">
+
 
 **Home Page**  
 ![Home Page](images/home.png)
@@ -83,13 +82,15 @@ cd Foodogram
 
 </div>
 
+---
+
 <h2>🧑‍💻 Project Admin:</h2>
 <table>
 <tr>
 <td align="center">
 <a href="https://github.com/Mrigakshi-Rathore"><img src="https://avatars.githubusercontent.com/u/108xxxxxx?v=4" height="140px" width="140px" alt="Mrigakshi"></a><br>
 <sub><b>Mrigakshi Rathore</b><br>
-<a href="https://www.linkedin.com/in/mrigakshi-rathore/">
+<a href="https://www.linkedin.com/in/mrigakshi-rathore-415911324/">
 <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/73993775/278833250-adb040ea-e3ef-446e-bcd4-3e8d7d4c0176.png" width="45px" height="45px">
 </a></sub>
 </td>
@@ -98,9 +99,12 @@ cd Foodogram
 
 ---
 
+<div align="center">
 **👨‍💻 Developed By**  
 **❤️ Mrigakshi Rathore ❤️**  
 [Open an Issue](https://github.com/Mrigakshi-Rathore/Foodogram/issues) | [Watch Live Demo](https://foodogram.infinityfreeapp.com)
+</div>
+---
 
 <div align="center">
     <a href="#top">
