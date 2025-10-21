@@ -88,7 +88,7 @@ cd Foodogram
 <table>
 <tr>
 <td align="center">
-<a href="https://github.com/Mrigakshi-Rathore"><img src="https://avatars.githubusercontent.com/u/108xxxxxx?v=4" height="140px" width="140px" alt="Mrigakshi"></a><br>
+<a href="https://github.com/Mrigakshi-Rathore"><img src="https://avatars.githubusercontent.com/u/203340283?v=4" height="140px" width="140px" alt="Mrigakshi"></a><br>
 <sub><b>Mrigakshi Rathore</b><br>
 <a href="https://www.linkedin.com/in/mrigakshi-rathore-415911324/">
 <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/73993775/278833250-adb040ea-e3ef-446e-bcd4-3e8d7d4c0176.png" width="45px" height="45px">
