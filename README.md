@@ -99,12 +99,12 @@ cd Foodogram
 
 ---
 
-<div align="center">
+
 **👨‍💻 Developed By**  
 **❤️ Mrigakshi Rathore ❤️**  
 [Open an Issue](https://github.com/Mrigakshi-Rathore/Foodogram/issues) | [Watch Live Demo](https://foodogram.infinityfreeapp.com)
 </div>
----
+
 
 <div align="center">
     <a href="#top">
