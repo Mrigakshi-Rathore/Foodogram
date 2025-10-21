@@ -61,7 +61,7 @@ Foodogram/
 ├── favorites.php
 ├── forgotpswd.php
 ├── help.php
-├── images/       ← put screenshots/GIFs here
+├── images/       # put screenshots/GIFs here
 ├── index.php
 ├── livechat.php
 ├── login.php
@@ -87,12 +87,12 @@ Foodogram/
 1. Clone the repository:  
 ```bash
 git clone https://github.com/Mrigakshi-Rathore/Foodogram.git
-	2.	Move files to your server folder (e.g., htdocs for XAMPP).
-	3.	Start Apache and MySQL servers.
-	4.	Create a MySQL database named foodogram_db.
-	5.	Import the SQL file foodogram_db.sql via phpMyAdmin.
-	6.	Open your browser and visit:
-    http://localhost/foodogram/index.php
+2.	Move files to your server folder (e.g., htdocs for XAMPP).
+3.	Start Apache and MySQL servers.
+4.	Create a MySQL database named foodogram_db.
+5.	Import the SQL file foodogram_db.sql via phpMyAdmin.
+6.	Open your browser and visit:
+http://localhost/foodogram/index.php
 
 ⸻
 
@@ -106,14 +106,14 @@ git clone https://github.com/Mrigakshi-Rathore/Foodogram.git
 **Menu Page**  
 ![Menu Page](images/menu.png)
 
-**About Us**  
-![About Us Page](images/aboutUs.png)
+**About Us Page**  
+![About Us](images/aboutUs.png)
 
-**User Profile**  
-![Profile Page](images/profile.png)
+**User Profile Page**  
+![Profile](images/profile.png)
 
-**Checkout**  
-![Checkout Page](images/checkout.png)
+**Checkout Page**  
+![Checkout](images/checkout.png)
 
 </div>
 
