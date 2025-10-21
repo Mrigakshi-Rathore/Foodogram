@@ -26,14 +26,14 @@
 
 ## 🧩 Key Features
 
-- User registration, login, and authentication  
-- Browse menus with search and filters  
-- Add to cart and checkout system  
-- Ratings and reviews for menu items  
-- User profile and order history  
-- Live chat/help page  
-- Admin panel for menu and order management  
-- Responsive, mobile-friendly design
+-✅ User registration, login, and authentication  
+-✅ Browse menus with search and filters  
+-✅ Add to cart and checkout system  
+-✅ Ratings and reviews for menu items  
+-✅ User profile and order history  
+-✅ Live chat/help page  
+-✅ Admin panel for menu and order management  
+-✅ Responsive, mobile-friendly design
 
 ---
 
@@ -49,50 +49,16 @@
 
 ---
 
-## 🗂️ Project Structure
+## Setup Instructions 📥
 
-Foodogram/
-├── about.php
-├── cart.php
-├── checkout.php
-├── contact.php
-├── db_connect.php
-├── faq.php
-├── favorites.php
-├── forgotpswd.php
-├── help.php
-├── images/       # put screenshots/GIFs here
-├── index.php
-├── livechat.php
-├── login.php
-├── logout.php
-├── menu.php
-├── orders.php
-├── profile.php
-├── rating.php
-├── register.php
-├── reviews.php
-├── save_checkout.php
-├── search.php
-├── settings.php
-├── signup.php
-├── terms.php
-├── README.md
-└── foodogram_db.sql
+🛠️ How to Run Locally
 
----
-
-## 🧠 How to Run Locally
-
-1. Clone the repository:  
+1. Clone the repository:
 ```bash
 git clone https://github.com/Mrigakshi-Rathore/Foodogram.git
-2.	Move files to your server folder (e.g., htdocs for XAMPP).
-3.	Start Apache and MySQL servers.
-4.	Create a MySQL database named foodogram_db.
-5.	Import the SQL file foodogram_db.sql via phpMyAdmin.
-6.	Open your browser and visit:
-http://localhost/foodogram/index.php
+cd Foodogram
+```
+
 
 ⸻
 
@@ -117,12 +83,24 @@ http://localhost/foodogram/index.php
 
 </div>
 
-🧑‍💻 Developer
+<h2>🧑‍💻 Project Admin:</h2>
+<table>
+<tr>
+<td align="center">
+<a href="https://github.com/Mrigakshi-Rathore"><img src="https://avatars.githubusercontent.com/u/108xxxxxx?v=4" height="140px" width="140px" alt="Mrigakshi"></a><br>
+<sub><b>Mrigakshi Rathore</b><br>
+<a href="https://www.linkedin.com/in/mrigakshi-rathore/">
+<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/73993775/278833250-adb040ea-e3ef-446e-bcd4-3e8d7d4c0176.png" width="45px" height="45px">
+</a></sub>
+</td>
+</tr>
+</table>
 
-Mrigakshi Rathore
-🎓 B.Tech CSE | Swami Keshvanand Institute of Technology (SKIT), Jaipur
-🔗 LinkedIn
-📧 mrigakshi2507@gmail.com
+---
+
+**👨‍💻 Developed By**  
+**❤️ Mrigakshi Rathore ❤️**  
+[Open an Issue](https://github.com/Mrigakshi-Rathore/Foodogram/issues) | [Watch Live Demo](https://foodogram.infinityfreeapp.com)
 
 <div align="center">
     <a href="#top">
