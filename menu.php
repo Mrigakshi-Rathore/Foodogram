@@ -515,22 +515,6 @@ session_start();
     </div>
 </div>
 
-<!-- Item A4 -->
-<div class="col-md-4">
-    <div class="menu-card" data-id="24" data-name="Stuffed Mushrooms" data-price="149"
-         data-img="https://images.unsplash.com/photo-1603048335149-4fc0f8a2e74e">
-        <img src="https://images.unsplash.com/photo-1603048335149-4fc0f8a2e74e" class="menu-img" alt="Stuffed Mushrooms">
-        <div class="menu-body">
-            <h3 class="menu-title"><i class="fas fa-leaf veg-icon"></i> Stuffed Mushrooms <span class="menu-rating">★ 4.6</span></h3>
-            <p class="menu-description">Mushrooms stuffed with cheese and herbs.</p>
-            <div class="d-flex justify-content-between align-items-center">
-                <span class="menu-price">₹149</span>
-                <button class="add-to-cart btn btn-danger">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- Item A6 -->
 <div class="col-md-4">
     <div class="menu-card" data-id="26" data-name="Onion Rings" data-price="149"
