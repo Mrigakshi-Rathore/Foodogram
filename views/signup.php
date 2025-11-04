@@ -1,37 +1,59 @@
 <?php
-session_start();
+/**
+ * User Registration Page
+ * Handles user signup with validation and database insertion
+ */
 
-// DB connection
-$host = "sql100.infinityfree.com";       // MySQL Hostname
-$dbname = "if0_39795005_foodogram";      // Database Name
-$username = "if0_39795005";              // MySQL Username
-$password = "foodogram"; 
+require_once 'config.php';
+require_once 'Database.php';
+require_once 'Session.php';
+require_once 'Security.php';
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
-}
+// Initialize session and database
+$session = Session::getInstance();
+$db = Database::getInstance()->getConnection();
 
 $errors = [];
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = trim($_POST['name'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $phone = trim($_POST['phone'] ?? '');
-    $password = $_POST['password'] ?? '';
-    $confirm_password = $_POST['confirm_password'] ?? '';
+
+// Process registration form
+if (Security::isPostRequest()) {
+    // Validate CSRF token
+    $csrfToken = Security::getPostData('csrf_token');
+    if (!Security::validateCSRFToken($csrfToken)) {
+        $errors['csrf'] = 'Invalid request. Please try again.';
+    }
+
+    // Get and sanitize form data
+    $name = Security::getPostData('name');
+    $email = Security::sanitizeEmail(Security::getPostData('email'));
+    $phone = Security::getPostData('phone');
+    $password = Security::getPostData('password');
+    $confirmPassword = Security::getPostData('confirm_password');
 
     // Validation
-    if (empty($name)) $errors['name'] = 'Full name is required';
-    if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) $errors['email'] = 'Valid email is required';
-    if (empty($phone)) $errors['phone'] = 'Phone number is required';
-    if (empty($password) || strlen($password) < 8) $errors['password'] = 'Password must be at least 8 characters';
-    if ($password !== $confirm_password) $errors['confirm_password'] = 'Passwords do not match';
+    if (empty($name)) {
+        $errors['name'] = 'Full name is required';
+    }
+
+    if (empty($email) || !Security::validateEmail($email)) {
+        $errors['email'] = 'Valid email is required';
+    }
+
+    if (empty($phone)) {
+        $errors['phone'] = 'Phone number is required';
+    }
+
+    if (!Security::validatePassword($password)) {
+        $errors['password'] = 'Password must be at least ' . PASSWORD_MIN_LENGTH . ' characters';
+    }
+
+    if ($password !== $confirmPassword) {
+        $errors['confirm_password'] = 'Passwords do not match';
+    }
 
     // Check if email exists
-    if (empty($errors)) {
-        $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
+    if (empty($errors) && !empty($email)) {
+        $stmt = $db->prepare("SELECT id FROM users WHERE email = ?");
         $stmt->execute([$email]);
         if ($stmt->fetch()) {
             $errors['email'] = 'Email is already registered';
@@ -39,34 +61,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Check if phone exists
-    if (empty($errors)) {
-        $stmt = $pdo->prepare("SELECT id FROM users WHERE phone = ?");
+    if (empty($errors) && !empty($phone)) {
+        $stmt = $db->prepare("SELECT id FROM users WHERE phone = ?");
         $stmt->execute([$phone]);
         if ($stmt->fetch()) {
             $errors['phone'] = 'Phone number is already registered';
         }
     }
 
-    // Insert user
+    // Insert user if no errors
     if (empty($errors)) {
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        try {
+            $hashedPassword = Security::hashPassword($password);
 
-        $stmt = $pdo->prepare("INSERT INTO users 
-            (name, email, phone, password, notif_email, notif_sms, privacy) 
-            VALUES (?, ?, ?, ?, 1, 0, 'Public')");
-        
-        if ($stmt->execute([$name, $email, $phone, $hashed_password])) {
-            $_SESSION['user_id'] = $pdo->lastInsertId();
-            $_SESSION['name'] = $name;
-            $_SESSION['logged_in'] = true;
-            $_SESSION['welcome_message'] = "Welcome to Foodogram, $name!";
-            header("Location: index.php");
-            exit();
-        } else {
+            $stmt = $db->prepare("INSERT INTO users
+                (name, email, phone, password, notif_email, notif_sms, privacy)
+                VALUES (?, ?, ?, ?, 1, 0, 'Public')");
+
+            if ($stmt->execute([$name, $email, $phone, $hashedPassword])) {
+                $userId = $db->lastInsertId();
+
+                // Set session data
+                $session->setLoginStatus(true, [
+                    'id' => $userId,
+                    'name' => $name
+                ]);
+
+                $session->setFlashMessage("Welcome to " . APP_NAME . ", $name!", 'success');
+
+                header("Location: index.php");
+                exit();
+            } else {
+                $errors['database'] = 'Registration failed, please try again';
+            }
+        } catch (Exception $e) {
+            error_log("Registration error: " . $e->getMessage());
             $errors['database'] = 'Registration failed, please try again';
         }
     }
 }
+
+// Generate CSRF token for form
+$csrfToken = Security::generateCSRFToken();
 ?>
 
 <!DOCTYPE html>
@@ -120,20 +156,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
 
     <form method="POST" action="signup.php">
+      <input type="hidden" name="csrf_token" value="<?php echo $csrfToken; ?>">
+
       <div class="mb-3 text-start">
         <label for="name" class="form-label">Full Name</label>
-        <input type="text" class="form-control <?php echo isset($errors['name']) ? 'is-invalid' : ''; ?>" 
-               id="name" name="name" placeholder="John Doe" 
+        <input type="text" class="form-control <?php echo isset($errors['name']) ? 'is-invalid' : ''; ?>"
+               id="name" name="name" placeholder="John Doe"
                value="<?php echo htmlspecialchars($name ?? ''); ?>" required>
         <?php if (isset($errors['name'])): ?>
           <div class="error-message"><?php echo $errors['name']; ?></div>
         <?php endif; ?>
       </div>
-      
+
       <div class="mb-3 text-start">
         <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control <?php echo isset($errors['email']) ? 'is-invalid' : ''; ?>" 
-               id="email" name="email" placeholder="you@example.com" 
+        <input type="email" class="form-control <?php echo isset($errors['email']) ? 'is-invalid' : ''; ?>"
+               id="email" name="email" placeholder="you@example.com"
                value="<?php echo htmlspecialchars($email ?? ''); ?>" required>
         <?php if (isset($errors['email'])): ?>
           <div class="error-message"><?php echo $errors['email']; ?></div>
@@ -142,26 +180,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       <div class="mb-3 text-start">
         <label for="phone" class="form-label">Phone</label>
-        <input type="text" class="form-control <?php echo isset($errors['phone']) ? 'is-invalid' : ''; ?>" 
-               id="phone" name="phone" placeholder="9876543210" 
+        <input type="text" class="form-control <?php echo isset($errors['phone']) ? 'is-invalid' : ''; ?>"
+               id="phone" name="phone" placeholder="9876543210"
                value="<?php echo htmlspecialchars($phone ?? ''); ?>" required>
         <?php if (isset($errors['phone'])): ?>
           <div class="error-message"><?php echo $errors['phone']; ?></div>
         <?php endif; ?>
       </div>
-      
+
       <div class="mb-3 text-start">
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control <?php echo isset($errors['password']) ? 'is-invalid' : ''; ?>" 
+        <input type="password" class="form-control <?php echo isset($errors['password']) ? 'is-invalid' : ''; ?>"
                id="password" name="password" placeholder="Create password" required>
         <?php if (isset($errors['password'])): ?>
           <div class="error-message"><?php echo $errors['password']; ?></div>
         <?php endif; ?>
       </div>
-      
+
       <div class="mb-3 text-start">
         <label for="confirm_password" class="form-label">Confirm Password</label>
-        <input type="password" class="form-control <?php echo isset($errors['confirm_password']) ? 'is-invalid' : ''; ?>" 
+        <input type="password" class="form-control <?php echo isset($errors['confirm_password']) ? 'is-invalid' : ''; ?>"
                id="confirm_password" name="confirm_password" placeholder="Confirm password" required>
         <?php if (isset($errors['confirm_password'])): ?>
           <div class="error-message"><?php echo $errors['confirm_password']; ?></div>
