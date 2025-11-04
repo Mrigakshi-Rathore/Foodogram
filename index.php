@@ -506,8 +506,6 @@ body.light-mode footer {
 <div class="main-content">
     <!-- Aapka existing content (marquee, tagline, etc.) -->
 
-
-<?php session_start(); ?>
 <?php if (!empty($_SESSION['welcome_message'])): ?>
     <div class="alert alert-success alert-dismissible fade show text-center mb-0 welcome-alert" role="alert">
         <strong>✅ <?php echo $_SESSION['welcome_message']; ?></strong>
@@ -516,12 +514,8 @@ body.light-mode footer {
     <?php unset($_SESSION['welcome_message']); ?>
 <?php endif; ?>
 
-
-
-
-
-
     <!-- Rest of your HTML content -->
+
     <marquee behavior="scroll" direction="right">
  <img
           class="image"
@@ -582,11 +576,11 @@ body.light-mode footer {
 
     <h1 class="tagline animate-text">
         <!-- Your animated text -->
-         <span>W</span><span>h</span><span>y</span> 
-  <span>W</span><span>a</span><span>i</span><span>t</span><span>?</span> 
-  <span>J</span><span>u</span><span>s</span><span>t</span> 
-  <span>P</span><span>l</span><span>a</span><span>t</span><span>e</span> 
-  <span>—</span> <span>w</span><span>i</span><span>t</span><span>h</span> 
+         <span>W</span><span>h</span><span>y</span>
+  <span>W</span><span>a</span><span>i</span><span>t</span><span>?</span>
+  <span>J</span><span>u</span><span>s</span><span>t</span>
+  <span>P</span><span>l</span><span>a</span><span>t</span><span>e</span>
+  <span>—</span> <span>w</span><span>i</span><span>t</span><span>h</span>
   <span style="color: rgb(255, 34, 34);">F</span><span style="color: rgb(255, 34, 34);">o</span><span style="color: rgb(255, 34, 34);">o</span><span style="color: rgb(255, 34, 34);">d</span><span style="color: rgb(255, 34, 34);">o</span><span style="color: rgb(255, 34, 34);">g</span><span style="color: rgb(255, 34, 34);">r</span><span style="color: rgb(255, 34, 34);">a</span><span style="color: rgb(255, 34, 34);">m!</span>
     </h1>
 
