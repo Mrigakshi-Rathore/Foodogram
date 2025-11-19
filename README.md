@@ -2,6 +2,19 @@
 
 <div align="center">
 
+## 📑 Table of Contents
+
+- [Top](#top)
+- [Key Features](#-key-features)
+- [Tech Stack](#-tech-stack)
+- [Setup Instructions](#-setup-instructions-)
+- [Database Schema](#️-database-schema)
+- [Screenshots / Demo](#-screenshots--demo)
+- [Project Admin](#-project-admin)
+- [Contributing](#-contributing)
+- [Support](#-support)
+
+
  **🍔 Foodogram – Online Food Ordering Website**
 
 ![Website](https://img.shields.io/badge/Online%20Food%20Ordering-Project-blue?style=for-the-badge)
