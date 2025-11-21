@@ -20,13 +20,15 @@ session_start();
         /* ... */
 
 header {
-            height: 200px;
+            height: auto;
+            min-height: 70px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             position: sticky;
             top: 0;
             z-index: 1000;
+            padding: 10px 15px !important;
         }
 
       .image,
@@ -59,14 +61,21 @@ header {
         margin-left: 800px;
       }
       #logo {
-        height: 135px;
-        width: 135px;
+        height: 60px;
+        width: 60px;
         margin-top: 0;
-        margin-left: 15px;
+        margin-left: 0;
         border-radius: 50%;
+        object-fit: cover;
       }
       .btn {
         margin-top: 0px;
+        padding: 8px 12px !important;
+        font-size: 0.95rem;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .image {
         height: 200px;
@@ -228,8 +237,63 @@ header {
 }
         /* Make the hamburger menu icon smaller */
 .btn-white i.fas.fa-bars {
-    font-size: 2.2rem !important; /* Adjust size as needed (default is 1rem) */
+    font-size: 1.5rem !important; /* Adjust size as needed */
+}
 
+/* Navbar container improvements */
+#header {
+    gap: 15px;
+}
+
+#header > div {
+    gap: 12px;
+    align-items: center;
+}
+
+/* Search form improvements */
+#header form {
+    gap: 8px;
+    height: 40px;
+}
+
+#header .form-control {
+    height: 40px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+#header .form-select {
+    height: 40px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+}
+
+#header .input-group {
+    height: 40px;
+}
+
+#header .input-group-text {
+    padding: 0 10px;
+    font-size: 1rem;
+}
+
+/* Button consistency */
+#header .btn {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    height: 40px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+/* Hamburger button specific */
+.btn-white {
+    padding: 6px 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-white:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 
@@ -269,36 +333,36 @@ header {
         </div>
     </div>
 
-    <header id="header" class="d-flex align-items-center justify-content-between px-3 py-2 bg-black">
+    <header id="header" class="d-flex align-items-center justify-content-between bg-black">
         <!-- Left: Hamburger + Logo -->
-        <div class="d-flex align-items-center gap-3">
-            <button class="btn btn-sm btn-white p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
+        <div class="d-flex align-items-center">
+            <button class="btn btn-sm btn-white p-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
                 <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
             </button>
-            <img id="logo" src="logo.jpeg" alt="Logo" class="me-2" />
+            <img id="logo" src="logo.jpeg" alt="Logo" class="ms-2" />
             
             <!-- Search Bar -->
-            <div class="px-3">
-                <form class="d-flex align-items-center" style="min-width: 400px;">
-                    <input class="form-control form-control-lg rounded-pill me-2" 
+            <div class="ms-3">
+                <form class="d-flex align-items-center" style="gap: 8px;">
+                    <input class="form-control rounded-pill" 
                            type="search" 
                            placeholder="🔍 Search for food or cuisines..." 
                            aria-label="Search"
-                           style="height: 40px;">
-                    <button class="btn btn-danger rounded-pill px-3" 
+                           style="height: 40px; width: 400px; padding: 8px 15px;">
+                    <button class="btn btn-danger rounded-pill px-4" 
                             type="submit"
-                            style="height: 40px;">
+                            style="height: 40px; padding: 8px 20px !important;">
                         Search
                     </button>
                 </form>
             </div>
             
             <!-- Location Selector -->
-            <div class="input-group ms-2" style="width: 200px; height: 40px;">
-                <span class="input-group-text bg-danger text-white px-2">
+            <div class="input-group ms-3" style="width: 180px; height: 40px;">
+                <span class="input-group-text bg-danger text-white px-2" style="border: none;">
                     <i class="fas fa-map-marker-alt"></i>
                 </span>
-                <select class="form-select">
+                <select class="form-select" style="border: 1px solid #dc3545; padding: 8px 10px;">
                     <option selected disabled>Location</option>
                     <option>Jaipur</option>
                     <option>Delhi</option>
@@ -309,15 +373,15 @@ header {
         </div>
 
         <!-- Right: Buttons -->
-        <div class="d-flex align-items-center gap-2">
-            <a href="menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
-            <a href="cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
+        <div class="d-flex align-items-center" style="gap: 10px;">
+            <a href="menu.php" class="btn btn-danger px-4 py-0">🍔 Menu</a>
+            <a href="cart.php" class="btn btn-danger px-4 py-0">🛒 Cart</a>
             <?php if (isset($_SESSION['logged_in'])): ?>
-                <a href="logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
+                <a href="logout.php" class="btn btn-danger px-4 py-0">👤 Logout</a>
             <?php else: ?>
-                <a href="login.php" class="btn btn-danger px-3 py-1">Login</a>
+                <a href="login.php" class="btn btn-danger px-4 py-0">Login</a>
             <?php endif; ?>
-            <button id="darkModeToggle" class="btn btn-outline-light ms-1 px-3 py-1">🌙 Dark</button>
+            <button id="darkModeToggle" class="btn btn-outline-light ms-1 px-3 py-0">🌙 Dark</button>
         </div>
     </header>
 
