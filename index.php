@@ -13,406 +13,309 @@ session_start(); // Keep this to maintain session functionality
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-        /* Your existing CSS styles here */
+        body {
+            background-image: url("images/bgImg.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(2px);
+            z-index: -1;
+        }
+
         header {
-            height: 200px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
         }
 
-      .image,
-      .image2 {
-        height: 200px;
-        width: 200px;
-        margin: 20px 10px; /* add some horizontal gap */
-        border-radius: 10px;
-        border: 3px solid white;
-        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-      }
-      body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
-        backdrop-filter: blur(2px); /* Slight blur */
-        z-index: -1; /* Behind everything */
-      }
-      marquee img {
-        margin-top: 20px !important;
-        padding-top: 0 !important;
-        display: inline-block;
-        vertical-align: top; /* aligns with top edge */
-      }
-      #tab {
-        margin-left: 800px;
-      }
-      #logo {
-        height: 135px;
-        width: 135px;
-        margin-top: 0;
-        margin-left: 15px;
-        border-radius: 50%;
-      }
-      .btn {
-        margin-top: 0px;
-      }
-      .image {
-        height: 200px;
-        width: 200px;
-        margin-top: 50px;
-        display: inline-block;
-      }
-      .image2 {
-        height: 200px;
-        width: 200px;
-        margin-top: 100px;
-      }
-      h1 {
-        font-style: italic;
-        text-align: center;
-        margin-top: 90px;
-        color: #ffffff;
-        text-shadow: 1px 1px 1px;
-      }
-      body {
-        background-image: url("images/bgImg.jpeg"); /* Replace with your image path */
-        background-size: cover; /* Makes the image cover the full body */
-        background-repeat: no-repeat; /* Prevents the image from repeating */
-        background-position: center;
-        background-attachment: fixed; /* keeps it fixed when scrolling (optional) */
-      } /* Centers the image */
-      #options {
-        margin-left: 600px;
-      }
-      button i {
-        font-size: 3rem;
-        padding: 4px;
-        color: white;
-        border: none;
-        outline: none;
-        box-shadow: none;
-      }
-      .tagline {
-        
-        color: white;
-        margin-left: 290px;
-        width: 60%;
-        text-align: center;
-        margin-bottom: 75px;
-        justify-content: center;
-        
-      }
-      .btn-danger {
-        margin-right: 15px; /* Adjust the spacing between buttons */
-      }
+        #logo {
+            height: 80px;
+            width: 80px;
+            margin-left: 10px;
+            border-radius: 50%;
+        }
 
-      .main-content {
-        position: relative;
-        z-index: 1;
-        overflow: hidden;
-      }
+        @media (min-width: 576px) {
+            #logo {
+                height: 100px;
+                width: 100px;
+            }
+        }
 
-      
-      .animate-text span {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.6s forwards;
-}
+        @media (min-width: 768px) {
+            #logo {
+                height: 120px;
+                width: 120px;
+            }
+        }
 
-.animate-text span:nth-child(1) { animation-delay: 0s; }
-.animate-text span:nth-child(2) { animation-delay: 0.1s; }
-.animate-text span:nth-child(3) { animation-delay: 0.2s; }
-.animate-text span:nth-child(4) { animation-delay: 0.3s; }
-.animate-text span:nth-child(5) { animation-delay: 0.4s; }
-.animate-text span:nth-child(6) { animation-delay: 0.5s; }
-.animate-text span:nth-child(7) { animation-delay: 0.6s; }
-.animate-text span:nth-child(8) { animation-delay: 0.7s; }
-.animate-text span:nth-child(9) { animation-delay: 0.8s; }
-.animate-text span:nth-child(10) { animation-delay: 0.9s; }
-.animate-text span:nth-child(11) { animation-delay: 1s; }
-.animate-text span:nth-child(12) { animation-delay: 1.1s; }
-.animate-text span:nth-child(13) { animation-delay: 1.2s; }
-.animate-text span:nth-child(14) { animation-delay: 1.3s; }
-.animate-text span:nth-child(15) { animation-delay: 1.4s; }
-.animate-text span:nth-child(16) { animation-delay: 1.5s; }
-.animate-text span:nth-child(17) { animation-delay: 1.6s; }
-.animate-text span:nth-child(18) { animation-delay: 1.7s; }
-.animate-text span:nth-child(19) { animation-delay: 1.8s; }
-.animate-text span:nth-child(20) { animation-delay: 1.9s; }
-.animate-text span:nth-child(21) { animation-delay: 2s; }
-.animate-text span:nth-child(22) { animation-delay: 2.1s; }
-.animate-text span:nth-child(23) { animation-delay: 2.2s; }
-.animate-text span:nth-child(24) { animation-delay: 2.3s; }
-.animate-text span:nth-child(25) { animation-delay: 2.4s; }
-.animate-text span:nth-child(26) { animation-delay: 2.5s; }
-.animate-text span:nth-child(27) { animation-delay: 2.6s; }
-.animate-text span:nth-child(28) { animation-delay: 2.7s; }
-.animate-text span:nth-child(29) { animation-delay: 2.8s; }
-.animate-text span:nth-child(30) { animation-delay: 2.9s; }
-.animate-text span:nth-child(31) { animation-delay: 3s; }
+        @media (min-width: 992px) {
+            #logo {
+                height: 140px;
+                width: 140px;
+            }
+        }
 
+        .header-search-form {
+            flex-grow: 1;
+            max-width: 500px;
+            width: 100%;
+        }
 
+        .header-search-form .form-control {
+            flex-grow: 1;
+            min-width: 0;
+        }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+        .input-group {
+            width: 100%;
+            max-width: 200px;
+        }
 
-      .footer {
-        height: 300px;
-        background: linear-gradient(
-          to right,
-          #000000,
-          #0d0d0d,
-          #1a1a1a,
-          #0d0d0d,
-          #000000
-        );
-        color: white;
-        padding-top: 2rem;
-        padding-bottom: 1rem;
-        font-size: 18px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-      }
+        .btn-white i.fas.fa-bars {
+            font-size: 1.5rem;
+        }
 
+        .main-content {
+            min-height: 80vh;
+            padding: 20px;
+        }
 
-  body.dark-mode {
-    background-color: #121212;
-    color: #f1f1f1;
-  }
+        marquee img {
+            margin-top: 20px;
+            display: inline-block;
+            vertical-align: top;
+        }
 
-  .dark-mode .card {
-    background-color: #1e1e1e;
-    color: #f1f1f1;
-    border: 1px solid #444;
-  }
+        .image, .image2 {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 10px;
+            border: 3px solid white;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+        }
 
-  .dark-mode .navbar, .dark-mode .footer {
-    background-color: #1f1f1f;
-  }
+        @media (min-width: 576px) {
+            .image, .image2 {
+                width: 180px;
+                height: 180px;
+            }
+        }
 
-  .dark-mode .btn-outline-light {
-    border-color: #f1f1f1;
-    color: #f1f1f1;
-  }
+        @media (min-width: 768px) {
+            .image, .image2 {
+                width: 200px;
+                height: 200px;
+            }
+        }
 
-  .dark-mode .btn-outline-light:hover {
-    background-color: #f1f1f1;
-    color: #000;
-  }
-  .header-search-form {
-    max-width: 1000px !important; /* Adjust this value */
-    width: 100%;
-}
+        .tagline {
+            color: white;
+            width: 90%;
+            margin: 30px auto;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+        }
 
-/* Make the input field expand */
-.header-search-form .form-control {
-    flex-grow: 1;
-    min-width: 320px; /* Minimum width */
-}
-        /* Make the hamburger menu icon smaller */
-.btn-white i.fas.fa-bars {
-    font-size: 2.2rem !important; /* Adjust size as needed (default is 1rem) */
+        @media (min-width: 576px) {
+            .tagline {
+                font-size: 2rem;
+            }
+        }
 
-}
+        @media (min-width: 768px) {
+            .tagline {
+                font-size: 2.5rem;
+            }
+        }
 
-@keyframes slideDown {
-    0% { transform: translateY(-100%); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-.welcome-alert {
-    animation: slideDown 0.8s ease forwards;
-    font-size: 1.1rem;
-    font-weight: 500;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-.fade-out {
-    transition: opacity 0.5s ease;
-    opacity: 0;
-}
-/* Remove fixed margin-left */
-#options, #tab {
-  margin-left: 0 !important;
-}
+        @media (min-width: 992px) {
+            .tagline {
+                font-size: 3rem;
+            }
+        }
 
-/* Make logo responsive */
-#logo {
-  height: 90px;
-  width: 90px;
-  margin-left: 10px;
-}
-@media (min-width: 768px) {
-  #logo {
-    height: 120px;
-    width: 120px;
-  }
-}
+        .animate-text span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s forwards;
+        }
 
-/* Search bar responsive */
-.header-search-form {
-  width: 100%;
-  max-width: 100%;
-}
-.header-search-form .form-control {
-  flex: 1 1 auto;
-  min-width: 0; /* allow shrinking */
-}
+        .animate-text span:nth-child(1) { animation-delay: 0s; }
+        .animate-text span:nth-child(2) { animation-delay: 0.1s; }
+        .animate-text span:nth-child(3) { animation-delay: 0.2s; }
+        .animate-text span:nth-child(4) { animation-delay: 0.3s; }
+        .animate-text span:nth-child(5) { animation-delay: 0.4s; }
+        .animate-text span:nth-child(6) { animation-delay: 0.5s; }
+        .animate-text span:nth-child(7) { animation-delay: 0.6s; }
+        .animate-text span:nth-child(8) { animation-delay: 0.7s; }
+        .animate-text span:nth-child(9) { animation-delay: 0.8s; }
+        .animate-text span:nth-child(10) { animation-delay: 0.9s; }
+        .animate-text span:nth-child(11) { animation-delay: 1s; }
+        .animate-text span:nth-child(12) { animation-delay: 1.1s; }
+        .animate-text span:nth-child(13) { animation-delay: 1.2s; }
+        .animate-text span:nth-child(14) { animation-delay: 1.3s; }
+        .animate-text span:nth-child(15) { animation-delay: 1.4s; }
+        .animate-text span:nth-child(16) { animation-delay: 1.5s; }
+        .animate-text span:nth-child(17) { animation-delay: 1.6s; }
+        .animate-text span:nth-child(18) { animation-delay: 1.7s; }
+        .animate-text span:nth-child(19) { animation-delay: 1.8s; }
+        .animate-text span:nth-child(20) { animation-delay: 1.9s; }
+        .animate-text span:nth-child(21) { animation-delay: 2s; }
+        .animate-text span:nth-child(22) { animation-delay: 2.1s; }
+        .animate-text span:nth-child(23) { animation-delay: 2.2s; }
+        .animate-text span:nth-child(24) { animation-delay: 2.3s; }
+        .animate-text span:nth-child(25) { animation-delay: 2.4s; }
+        .animate-text span:nth-child(26) { animation-delay: 2.5s; }
+        .animate-text span:nth-child(27) { animation-delay: 2.6s; }
+        .animate-text span:nth-child(28) { animation-delay: 2.7s; }
+        .animate-text span:nth-child(29) { animation-delay: 2.8s; }
+        .animate-text span:nth-child(30) { animation-delay: 2.9s; }
+        .animate-text span:nth-child(31) { animation-delay: 3s; }
 
-/* Search & location adjust */
-@media (max-width: 768px) {
-  .header-search-form {
-    min-width: 100% !important;
-    margin-top: 10px;
-  }
-  .input-group {
-    width: 100% !important;
-    margin-top: 10px;
-  }
-}
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-/* Buttons stack on small screens */
-@media (max-width: 576px) {
-  .d-flex.align-items-center.gap-2 {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px;
-  }
-}
+        .footer {
+            background: linear-gradient(to right, #000000, #0d0d0d, #1a1a1a, #0d0d0d, #000000);
+            color: white;
+            padding-top: 2rem;
+            padding-bottom: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
 
-/* Make marquee images responsive */
-.image, .image2 {
-  height: auto;
-  width: 150px;
-  max-width: 40vw;  /* Shrinks on small screens */
-}
-@media (max-width: 576px) {
-  .image, .image2 {
-    width: 100px;
-  }
-}
+        .welcome-alert {
+            animation: slideDown 0.8s ease forwards;
+            font-size: 1.1rem;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
 
-/* Tagline responsive */
-.tagline {
-  width: 90%;
-  margin: 20px auto;
-  font-size: 1.3rem;
-}
-@media (min-width: 768px) {
-  .tagline {
-    font-size: 1.8rem;
-  }
-}
-/* Marquee images same size */
-.image, .image2 {
-  width: 180px;   /* equal width */
-  height: 180px;  /* equal height */
-  object-fit: cover;   /* crop without distortion */
-  border-radius: 10px;
-  margin: 10px;
-  border: 3px solid white;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-}
+        .fade-out {
+            transition: opacity 0.5s ease;
+            opacity: 0;
+        }
 
-/* Smaller size on mobile */
-@media (max-width: 576px) {
-  .image, .image2 {
-    width: 120px;
-    height: 120px;
-  }
-}
-/* Search bar wider */
-.header-search-form {
-  flex-grow: 1; 
-  max-width: 600px;   /* pehle 400px tha, 
-  width: 100%;
-}
+        @keyframes slideDown {
+            0% { transform: translateY(-100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
 
-.header-search-form .form-control {
-  flex-grow: 1;
-  min-width: 0;
-}
-.main-content {
-  min-height: 80vh;  /* screen ke 80% height tak body stretch hogi */
-  padding: 40px 20px;
-}
-/* Mobile pe thoda bada */
-#logo {
-  height: 110px;
-  width: 110px;
-  margin-left: 10px;
-}
+        body.dark-mode {
+            background-color: #121212;
+            color: #f1f1f1;
+        }
 
-/* Tablet & desktop pe aur bada */
-@media (min-width: 768px) {
-  #logo {
-    height: 140px;
-    width: 140px;
-  }
-}
-body.light-mode {
-  background-color: #f8f9fa;  /* light background */
-  color: #212529;             /* dark text */
-}
+        .dark-mode .card {
+            background-color: #1e1e1e;
+            color: #f1f1f1;
+            border: 1px solid #444;
+        }
 
-body.light-mode .card {
-  background-color: #ffffff;
-  color: #000;
-}
+        .dark-mode .navbar, .dark-mode .footer {
+            background-color: #1f1f1f;
+        }
 
-body.light-mode .navbar,
-body.light-mode footer {
-  background-color: #e9ecef;
-}
-/* Header Logo */
-#logo { height: 90px; width: 90px; margin-left:10px; }
-@media(min-width:768px){ #logo{ height:140px; width:140px; } }
+        .dark-mode .btn-outline-light {
+            border-color: #f1f1f1;
+            color: #f1f1f1;
+        }
 
-/* Search Bar */
-.header-search-form { flex-grow:1; max-width:600px; width:100%; margin-top:5px; }
-.header-search-form .form-control { flex-grow:1; min-width:0; }
+        .dark-mode .btn-outline-light:hover {
+            background-color: #f1f1f1;
+            color: #000;
+        }
 
-/* Marquee images */
-.image, .image2 { width:180px; height:180px; object-fit:cover; border-radius:10px; margin:10px; }
-@media(max-width:576px){ .image, .image2 { width:120px; height:120px; } }
+        body.light-mode {
+            background-color: #f8f9fa;
+            color: #212529;
+        }
 
-/* Buttons container responsiveness */
-.d-flex.align-items-center.gap-2 { flex-wrap:wrap; justify-content:center; }
+        body.light-mode .card {
+            background-color: #ffffff;
+            color: #000;
+        }
 
-/* Main content height */
-.main-content { min-height:80vh; padding:20px; }
+        body.light-mode .navbar, body.light-mode footer {
+            background-color: #e9ecef;
+        }
 
-/* Tagline responsive */
-.tagline { width:90%; margin:20px auto; font-size:1.2rem; }
-@media(min-width:768px){ .tagline{ font-size:1.8rem; } }
-/* Slightly smaller tagline */
-.tagline {
-    width: 90%;
-    margin: 30px auto;
-    font-size: 2.3rem;      /* slightly smaller */
-    font-weight: 700;
-    text-align: center;
-    color: white;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
-}
+        /* Mobile responsiveness for header */
+        @media (max-width: 768px) {
+            header .row {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            header .col-12 {
+                text-align: center;
+            }
+            header .d-flex.align-items-center {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            #logo {
+                order: -1;
+                margin: 0 auto;
+            }
+            .header-search-form {
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+            }
+            .header-search-form .btn {
+                margin-top: 0.5rem;
+            }
+            .input-group {
+                width: 100%;
+                max-width: 300px;
+            }
+            header .col-12.col-md-4 {
+                justify-content: center !important;
+            }
+        }
 
-/* Medium screens */
-@media (min-width: 768px) {
-    .tagline {
-        font-size: 2.7rem;   /* adjusts for larger screens */
-    }
-}
-
+        /* Additional mobile responsiveness for other elements */
+        @media (max-width: 576px) {
+            .main-content {
+                padding: 10px;
+            }
+            .tagline {
+                font-size: 1.2rem;
+                margin: 20px auto;
+            }
+            .image, .image2 {
+                width: 120px;
+                height: 120px;
+                margin: 5px;
+            }
+            marquee {
+                height: auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -452,56 +355,53 @@ body.light-mode footer {
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-    <header id="header" class="d-flex align-items-center justify-content-between px-3 py-2 bg-black">
-    <!-- Left: Hamburger + Logo -->
-    <div class="d-flex align-items-center gap-3">
-        <button class="btn btn-sm btn-white p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
-            <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
-        </button>
-        <img id="logo" src="images/logo.jpg" alt="Logo" class="me-2" />
-        
-     <!-- Fixed Search Bar -->
-<form class="d-flex align-items-center header-search-form" action="search.php" method="GET">
-    <input class="form-control form-control-lg rounded-pill me-2" 
-           type="search" 
-           name="q"  
-           placeholder="🔍 Search for food or cuisines..." 
-           aria-label="Search"
-           required>
-    <button class="btn btn-danger rounded-pill px-3" type="submit">
-        Search
-    </button>
-</form>
-
-    <div class="input-group ms-2">
-        <span class="input-group-text bg-danger text-white px-2">
-            <i class="fas fa-map-marker-alt"></i>
-        </span>
-        <select class="form-select">
-            <option selected disabled>Location</option>
-            <option>Jaipur</option>
-            <option>Delhi</option>
-            <option>Mumbai</option>
-            <option>Bangalore</option>
-        </select>
-    </div>
-</div>
-    </div>
-
-    <!-- Right: Buttons -->
-     
-    <div class="d-flex align-items-center gap-2">
-        <a href="menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
-        <a href="cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
-    
-    <?php if (isset($_SESSION['logged_in'])): ?>
-        <a href="logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
-    <?php else: ?>
-        <a href="login.php" class="btn btn-danger px-3 py-1">Login</a>
-       <a href="signup.php" class="btn btn-danger px-3 py-1">Sign Up</a>
-    <?php endif; ?>
-        
-</header>
+    <header class="container-fluid bg-black py-2">
+        <div class="row align-items-center">
+            <!-- Left: Hamburger, Logo, Search, Location -->
+            <div class="col-12 col-md-8 d-flex align-items-center flex-wrap gap-2 px-3">
+                <div class="d-flex align-items-center gap-2">
+                    <button class="btn btn-sm btn-white p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
+                        <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+                    </button>
+                    <img id="logo" src="images/logo.jpg" alt="Logo" />
+                </div>
+                <form class="d-flex align-items-center header-search-form flex-grow-1" action="search.php" method="GET">
+                    <input class="form-control form-control-lg rounded-pill me-2"
+                           type="search"
+                           name="q"
+                           placeholder="🔍 Search for food or cuisines..."
+                           aria-label="Search"
+                           required>
+                    <button class="btn btn-danger rounded-pill px-3" type="submit">
+                        Search
+                    </button>
+                </form>
+                <div class="input-group">
+                    <span class="input-group-text bg-danger text-white px-2">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </span>
+                    <select class="form-select">
+                        <option selected disabled>Location</option>
+                        <option>Jaipur</option>
+                        <option>Delhi</option>
+                        <option>Mumbai</option>
+                        <option>Bangalore</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Right: Buttons -->
+            <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end gap-2 flex-wrap px-3 mt-2 mt-md-0">
+                <a href="menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
+                <a href="cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
+                <?php if (isset($_SESSION['logged_in'])): ?>
+                    <a href="logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
+                <?php else: ?>
+                    <a href="login.php" class="btn btn-danger px-3 py-1">Login</a>
+                    <a href="signup.php" class="btn btn-danger px-3 py-1">Sign Up</a>
+                <?php endif; ?>
+            </div>
+        </div>
+    </header>
 
 <div class="main-content">
     <!-- Aapka existing content (marquee, tagline, etc.) -->
