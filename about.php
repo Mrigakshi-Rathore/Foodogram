@@ -73,16 +73,56 @@
         
         /* Content Styling */
         .content-section {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 50px;
+            margin-bottom: 50px;
+            
+            /* Initial State */
+            transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.801);
+            border: 2px solid transparent; 
+            
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+
+        .content-section:hover {
+            transform: perspective(1000px) rotateX(2deg) translateY(-15px) scale(1.03);
+            
+            box-shadow: 0 55px 50px rgba(255, 115, 0, 0.36);
+            
+            /* 3. Highlight Border */
+            border-color: var(--primary); /* Turns Purple */
+            z-index: 10;
         }
         
-        .content-section:hover {
-            transform: translateY(-5px);
+                .content-section h2 {
+            font-family:'Times New Roman', Times, serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            
+            /* Gradient Text Magic */
+            background: linear-gradient(var(--primary), #ff0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .content-section p.lead {
+            font-size: 1.25rem;
+            font-family:serif;
+            color: #444;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .content-section p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #000000;
+            line-height: 1.8;
         }
         
         .card-feature {
