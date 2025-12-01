@@ -61,6 +61,45 @@
         width: 100%;
     }
 }
+
+/* --- CUSTOM SCROLLBARS (Global & Menu) --- */
+
+    /* 1. Main Website Scrollbar (Light Theme) */
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #888; 
+        border-radius: 6px;
+        border: 3px solid #f1f1f1; /* Creates padding around the thumb */
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+
+    /* 2. Side Menu (Offcanvas) Scrollbar (Dark Theme) */
+    .offcanvas-body {
+        overflow-y: auto !important; /* Force vertical scroll */
+        max-height: 100vh;
+    }
+    .offcanvas-body::-webkit-scrollbar {
+        width: 8px; /* Slightly thinner */
+    }
+    .offcanvas-body::-webkit-scrollbar-track {
+        background: #212529; /* Matches Dark Menu Background */
+    }
+    .offcanvas-body::-webkit-scrollbar-thumb {
+        background: #666; 
+        border-radius: 4px;
+        border: 2px solid #212529;
+    }
+    .offcanvas-body::-webkit-scrollbar-thumb:hover {
+        background: #999; /* Lightens on hover */
+    }
+    
 </style>
 
 <header id="header" class="d-flex align-items-center justify-content-between px-3 py-2 bg-black">

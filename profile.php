@@ -293,6 +293,42 @@ $user_data = [
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
     }
+
+
+    /* 1. Global Scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #888; 
+        border-radius: 5px;
+        border: 2px solid #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+
+    /* 2. Side Menu (Offcanvas) Scrollbar */
+    .offcanvas-body {
+        overflow-y: auto !important;
+        max-height: 100vh;
+    }
+    .offcanvas-body::-webkit-scrollbar {
+        width: 6px;
+    }
+    .offcanvas-body::-webkit-scrollbar-track {
+        background: #212529; /* Dark background */
+    }
+    .offcanvas-body::-webkit-scrollbar-thumb {
+        background: #666; 
+        border-radius: 4px;
+    }
+    .offcanvas-body::-webkit-scrollbar-thumb:hover {
+        background: #999; 
+    }
   </style>
 </head>
 <body>
