@@ -11,18 +11,6 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/bgImg.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            font-family: 'Segoe UI', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
         .main-content {
             flex: 1;
             padding: 2rem 0;
@@ -34,8 +22,7 @@ session_start();
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            position: sticky;
-            top: 0;
+            position: relative;
             z-index: 1000;
         }
 
@@ -259,6 +246,153 @@ session_start();
         .btn-top:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 767px) {
+            /* Header Adjustments */
+            header {
+                flex-direction: column;
+                height: auto;
+                padding: 0.25rem 0.25rem;
+                gap: 0.25rem;
+            }
+
+            .d-flex.align-items-center.gap-3 {
+                flex-direction: column;
+                gap: 0.25rem;
+                width: 100%;
+            }
+
+            #logo {
+                height: 50px;
+                width: 50px;
+                margin-left: 0;
+            }
+
+            .header-search-form {
+                width: 100%;
+                max-width: none;
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .header-search-form .form-control {
+                min-width: auto;
+                width: 100%;
+                height: 32px;
+                font-size: 0.875rem;
+            }
+
+            .header-search-form .btn {
+                height: 32px;
+                font-size: 0.875rem;
+                padding: 0.25rem 0.75rem;
+                margin-top: 8px;
+                align-self: center;
+            }
+
+            .input-group {
+                width: 100%;
+                max-width: 300px;
+                height: 32px;
+            }
+
+            .input-group .form-select {
+                height: 32px;
+                font-size: 0.875rem;
+            }
+
+            .input-group-text {
+                height: 32px;
+                font-size: 0.875rem;
+            }
+
+            .d-flex.align-items-center.gap-2 {
+                width: 100%;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .d-flex.align-items-center.gap-2 a {
+                padding: 0.375rem 0.75rem;
+                font-size: 0.875rem;
+            }
+
+            /* Hero Section */
+            .help-hero {
+                padding: 2rem 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .help-hero h1 {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .help-hero p {
+                font-size: 1rem;
+            }
+
+            /* Help Cards */
+            .help-card {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .help-card h3 {
+                font-size: 1.25rem;
+            }
+
+            .help-card p {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            .btn-help {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+
+            /* Support Methods */
+            .support-methods {
+                display: block;
+                gap: 1rem;
+            }
+
+            .support-method {
+                padding: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .support-method i {
+                font-size: 2rem;
+            }
+
+            .support-method h4 {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            /* Footer */
+            .footer {
+                padding-top: 1.5rem;
+                padding-bottom: 1rem;
+                font-size: 14px;
+            }
+
+            .footer h5 {
+                font-size: 24px;
+            }
+
+            .footer .row > div {
+                margin-bottom: 1.5rem;
+            }
+
+            .btn-top {
+                width: 100%;
+                margin-top: 1rem;
+            }
         }
     </style>
 </head>
