@@ -240,6 +240,206 @@
           height:600px;
           width: 550px;
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 767px) {
+          /* Header Adjustments */
+          header {
+            height: auto;
+            padding: 0.5rem 0.25rem;
+            flex-direction: column;
+            align-items: stretch;
+            position: relative;
+          }
+
+          header .d-flex.align-items-center {
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+          }
+
+          #logo {
+            height: 50px;
+            width: 50px;
+            margin: 0;
+          }
+
+          .header-search-form {
+            max-width: 100% !important;
+            width: 100%;
+          }
+
+          .header-search-form .form-control {
+            min-width: auto;
+            flex-grow: 1;
+            font-size: 0.8rem;
+            padding: 0.375rem 0.75rem;
+          }
+
+          .header-search-form .btn {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.8rem;
+          }
+
+          .input-group {
+            width: 100% !important;
+            margin: 0.25rem 0;
+            height: 32px;
+          }
+
+          .input-group .form-select {
+            font-size: 0.8rem;
+            padding: 0.375rem 0.75rem;
+          }
+
+          .input-group-text {
+            padding: 0.375rem 0.5rem;
+            font-size: 0.8rem;
+          }
+
+          header .d-flex.align-items-center.gap-2 {
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+          }
+
+          header .btn {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+          }
+
+          /* Hero Section */
+          .hero-section {
+            padding: 50px 1rem;
+            margin-bottom: 30px;
+          }
+
+          .hero-section h1 {
+            font-size: 2rem;
+          }
+
+          .hero-section .lead {
+            font-size: 1rem;
+          }
+
+          /* Content Sections */
+          .content-section {
+            padding: 20px 1rem;
+            margin-bottom: 20px;
+          }
+
+          .content-section .row {
+            flex-direction: column;
+          }
+
+          .content-section .col-lg-6 {
+            margin-bottom: 2rem;
+          }
+
+          .content-section h2 {
+            font-size: 1.5rem;
+          }
+
+          .content-section .lead {
+            font-size: 1rem;
+          }
+
+          /* Food Image */
+          #food {
+            height: auto;
+            width: 100%;
+            max-width: 400px;
+          }
+
+          /* Stats Section */
+          .stats-section {
+            padding: 40px 1rem;
+            margin: 30px 0;
+          }
+
+          .stat-item {
+            padding: 15px 10px;
+          }
+
+          .stat-number {
+            font-size: 2rem;
+          }
+
+          /* Features Section */
+          .card-feature {
+            padding: 1.5rem 1rem;
+            margin-bottom: 1rem;
+          }
+
+          .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+          }
+
+          .card-feature h3 {
+            font-size: 1.2rem;
+          }
+
+          .card-feature p {
+            font-size: 0.9rem;
+          }
+
+          /* Promise Section */
+          .content-section .d-flex {
+            flex-direction: column;
+            text-align: center;
+            margin-bottom: 2rem;
+          }
+
+          .content-section .d-flex .me-4 {
+            margin-right: 0;
+            margin-bottom: 1rem;
+          }
+
+          .content-section .d-flex h4 {
+            font-size: 1.1rem;
+          }
+
+          .content-section .d-flex p {
+            font-size: 0.9rem;
+          }
+
+          /* Footer */
+          .footer {
+            padding-top: 1.5rem;
+            padding-bottom: 1rem;
+            font-size: 16px;
+            border-radius: 20px 20px 0 0;
+            margin-top: 30px;
+          }
+
+          .footer h5 {
+            font-size: 24px;
+          }
+
+          .footer .row > div {
+            margin-bottom: 1.5rem;
+          }
+
+          .footer .text-center.small {
+            font-size: 14px;
+          }
+
+          /* Back to Top Button */
+          .back-to-top {
+            width: 45px;
+            height: 45px;
+            font-size: 18px;
+            bottom: 15px;
+            right: 15px;
+          }
+
+          /* Floating Icons */
+          .floating-icons span {
+            font-size: 30px;
+          }
+        }
     </style>
 </head>
 <body>
