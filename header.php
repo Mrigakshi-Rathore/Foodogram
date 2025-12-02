@@ -264,6 +264,44 @@ header {
 .offcanvas-body .nav-link:hover::after {
     width: 100%;
 }
+/* Light mode (default) */
+body.light-mode {
+    background-color: #ffffff;
+    color: #000;
+}
+
+.light-mode .navbar,
+.light-mode header {
+    background-color: #ffffff !important;
+    color: #000 !important;
+}
+
+/* Dark mode (already present but improving) */
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+.dark-mode header,
+.dark-mode .navbar,
+.dark-mode .offcanvas {
+    background-color: #1A1A1A !important;
+}
+
+.dark-mode .btn-outline-light {
+    border-color: #fff;
+    color: #fff;
+}
+
+.dark-mode .btn-outline-light:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Smooth transition */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
     </style>
 </head>
@@ -353,9 +391,36 @@ header {
         </div>
     </header>
 
-    <?php if (isset($_SESSION['welcome_message'])): ?>
-        <div class="alert alert-success">
-            <?= $_SESSION['welcome_message'] ?>
-            <?php unset($_SESSION['welcome_message']); ?>
-        </div>
-    <?php endif; ?>
+   <?php if (isset($_SESSION['welcome_message'])): ?>
+    <div class="alert alert-success">
+        <?= $_SESSION['welcome_message'] ?>
+        <?php unset($_SESSION['welcome_message']); ?>
+    </div>
+<?php endif; ?>
+
+<!-- 🌙 Theme Toggle Script -->
+<script>
+    const toggleBtn = document.getElementById("darkModeToggle");
+    const body = document.body;
+
+    // Load saved theme on refresh
+    if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark-mode");
+        toggleBtn.textContent = "☀️ Light";
+    }
+
+    toggleBtn.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+
+        if (body.classList.contains("dark-mode")) {
+            toggleBtn.textContent = "☀️ Light";
+            localStorage.setItem("theme", "dark");
+        } else {
+            toggleBtn.textContent = "🌙 Dark";
+            localStorage.setItem("theme", "light");
+        }
+    });
+</script>
+
+</body>
+</html>
