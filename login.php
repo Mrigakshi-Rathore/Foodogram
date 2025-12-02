@@ -86,6 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p class="mt-4 text-center">Don't have an account? <a href="signup.php">Sign Up</a></p>
     </div>
 </div>
+<form method="POST" onsubmit="showLoader()">
+
 </body>
 </html>
 =

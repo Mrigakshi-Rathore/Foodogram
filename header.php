@@ -303,9 +303,43 @@ body.dark-mode {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* 🔥 Global Loading Spinner */
+#globalLoader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(5px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+}
+
+#globalLoader .spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #fff;
+    border-top-color: #ff3c3c;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
     </style>
 </head>
 <body>
+
+<div id="globalLoader">
+    <div class="spinner"></div>
+</div>
+
     <!-- Offcanvas Menu -->
     <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="darkMenu">
         <div class="offcanvas-header">
@@ -420,6 +454,18 @@ body.dark-mode {
             localStorage.setItem("theme", "light");
         }
     });
+</script>
+<script>
+    function showLoader() {
+        document.getElementById("globalLoader").style.display = "flex";
+    }
+
+    function hideLoader() {
+        document.getElementById("globalLoader").style.display = "none";
+    }
+
+    // Auto-hide loader after page load
+    window.addEventListener("load", () => hideLoader());
 </script>
 
 </body>
