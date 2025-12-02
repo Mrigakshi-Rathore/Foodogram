@@ -73,16 +73,56 @@
         
         /* Content Styling */
         .content-section {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 50px;
+            margin-bottom: 50px;
+            
+            /* Initial State */
+            transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.801);
+            border: 2px solid transparent; 
+            
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+
+        .content-section:hover {
+            transform: perspective(1000px) rotateX(2deg) translateY(-15px) scale(1.03);
+            
+            box-shadow: 0 55px 50px rgba(255, 115, 0, 0.36);
+            
+            /* 3. Highlight Border */
+            border-color: var(--primary); /* Turns Purple */
+            z-index: 10;
         }
         
-        .content-section:hover {
-            transform: translateY(-5px);
+                .content-section h2 {
+            font-family:'Times New Roman', Times, serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            
+            /* Gradient Text Magic */
+            background: linear-gradient(var(--primary), #ff0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .content-section p.lead {
+            font-size: 1.25rem;
+            font-family:serif;
+            color: #444;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .content-section p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #000000;
+            line-height: 1.8;
         }
         
         .card-feature {
@@ -240,6 +280,41 @@
           height:600px;
           width: 550px;
         }
+
+        /* 1. Global Scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #888; 
+        border-radius: 5px;
+        border: 2px solid #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+
+    /* 2. Side Menu (Offcanvas) Scrollbar */
+    .offcanvas-body {
+        overflow-y: auto !important;
+        max-height: 100vh;
+    }
+    .offcanvas-body::-webkit-scrollbar {
+        width: 6px;
+    }
+    .offcanvas-body::-webkit-scrollbar-track {
+        background: #212529; /* Dark background */
+    }
+    .offcanvas-body::-webkit-scrollbar-thumb {
+        background: #666; 
+        border-radius: 4px;
+    }
+    .offcanvas-body::-webkit-scrollbar-thumb:hover {
+        background: #999; 
+    }
     </style>
 </head>
 <body>
@@ -498,7 +573,11 @@
                     <h6 class="fw-bold">Follow Us</h6>
                     <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
                     <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
-                    <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#" class="text-white me-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="18" width="18" viewBox="0 0 512 512" fill="currentColor" style="vertical-align: middle;">
+                            <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+                        </svg>
+                    </a>
                     <a href="#" class="text-white"><i class="fab fa-youtube fa-lg"></i></a>
                 </div>
             </div>

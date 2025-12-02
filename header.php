@@ -1,136 +1,67 @@
-<?php
-session_start();
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?php echo isset($page_title) ? $page_title : 'Foodogram'; ?></title>
+<!-- Offcanvas Menu -->
+<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="darkMenu">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Explore</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="index.php">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="about.php">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="profile.php">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="rating.php">Rate Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="settings.php">Settings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="help.php">Help/Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="terms.php">Terms and Conditions</a>
+            </li>
+        </ul>
+    </div>
+</div>
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    
-    <style>
-        /* Your CSS styles here (keep all the styles from your original file) */
-        /* ... */
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-header {
-            height: 200px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-      .image,
-      .image2 {
-        height: 200px;
-        width: 200px;
-        margin: 20px 10px; /* add some horizontal gap */
-        border-radius: 10px;
-        border: 3px solid white;
-        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-      }
-      body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
+<style>
+@media (max-width: 768px) {
+    #header {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    #header > .d-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    #logo {
+        order: -1;
+        margin: 0 auto;
+    }
+    .header-search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .header-search-form .btn {
+        margin-top: 0.5rem;
+    }
+    #header > .d-flex > .input-group {
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
-        backdrop-filter: blur(2px); /* Slight blur */
-        z-index: -1; /* Behind everything */
-      }
-      marquee img {
-        margin-top: 20px !important;
-        padding-top: 0 !important;
-        display: inline-block;
-        vertical-align: top; /* aligns with top edge */
-      }
-      #tab {
-        margin-left: 800px;
-      }
-      #logo {
-        height: 135px;
-        width: 135px;
-        margin-top: 0;
-        margin-left: 15px;
-        border-radius: 50%;
-      }
-      .btn {
-        margin-top: 0px;
-      }
-      .image {
-        height: 200px;
-        width: 200px;
-        margin-top: 50px;
-        display: inline-block;
-      }
-      .image2 {
-        height: 200px;
-        width: 200px;
-        margin-top: 100px;
-      }
-      h1 {
-        font-style: italic;
-        text-align: center;
-        margin-top: 90px;
-        color: #ffffff;
-        text-shadow: 1px 1px 1px;
-      }
-      body {
-        background-image: url("bgimg.jpeg"); /* Replace with your image path */
-        background-size: cover; /* Makes the image cover the full body */
-        background-repeat: no-repeat; /* Prevents the image from repeating */
-        background-position: center;
-        background-attachment: fixed; /* keeps it fixed when scrolling (optional) */
-      } /* Centers the image */
-      #options {
-        margin-left: 600px;
-      }
-      button i {
-        font-size: 3rem;
-        padding: 4px;
-        color: white;
-        border: none;
-        outline: none;
-        box-shadow: none;
-      }
-      .tagline {
-        
-        color: white;
-        margin-left: 290px;
-        width: 60%;
-        text-align: center;
-        margin-bottom: 75px;
-        justify-content: center;
-        
-      }
-      .btn-danger {
-        margin-right: 15px; /* Adjust the spacing between buttons */
-      }
-
-      .main-content {
-        position: relative;
-        z-index: 1;
-        overflow: hidden;
-      }
-
-      
-      .animate-text span {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeInUp 0.6s forwards;
+    }
 }
+
 
 .animate-text span:nth-child(1) { animation-delay: 0s; }
 .animate-text span:nth-child(2) { animation-delay: 0.1s; }
@@ -344,39 +275,83 @@ body.dark-mode {
         <div class="d-flex align-items-center gap-3">
             <button class="btn btn-sm btn-white p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
                 <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+
+/* --- CUSTOM SCROLLBARS (Global & Menu) --- */
+
+    /* 1. Main Website Scrollbar (Light Theme) */
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #888; 
+        border-radius: 6px;
+        border: 3px solid #f1f1f1; /* Creates padding around the thumb */
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+
+    /* 2. Side Menu (Offcanvas) Scrollbar (Dark Theme) */
+    .offcanvas-body {
+        overflow-y: auto !important; /* Force vertical scroll */
+        max-height: 100vh;
+    }
+    .offcanvas-body::-webkit-scrollbar {
+        width: 8px; /* Slightly thinner */
+    }
+    .offcanvas-body::-webkit-scrollbar-track {
+        background: #212529; /* Matches Dark Menu Background */
+    }
+    .offcanvas-body::-webkit-scrollbar-thumb {
+        background: #666; 
+        border-radius: 4px;
+        border: 2px solid #212529;
+    }
+    .offcanvas-body::-webkit-scrollbar-thumb:hover {
+        background: #999; /* Lightens on hover */
+    }
+    
+</style>
+
+<header id="header" class="d-flex align-items-center justify-content-between px-3 py-2 bg-black">
+    <!-- Left: Hamburger + Logo -->
+    <div class="d-flex align-items-center gap-3">
+        <button class="btn btn-sm btn-white p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
+            <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+        </button>
+        <img id="logo" src="images/logo.jpg" alt="Logo" class="me-2" />
+
+        <!-- Fixed Search Bar -->
+        <form class="d-flex align-items-center header-search-form" action="search.php" method="GET">
+            <input class="form-control form-control-lg rounded-pill me-2"
+                   type="search"
+                   name="q"
+                   placeholder="🔍 Search for food or cuisines..."
+                   aria-label="Search"
+                   required>
+            <button class="btn btn-danger rounded-pill px-3" type="submit">
+                Search
+
             </button>
-            <img id="logo" src="logo.jpeg" alt="Logo" class="me-2" />
-            
-            <!-- Search Bar -->
-            <div class="px-3">
-                <form class="d-flex align-items-center" style="min-width: 400px;">
-                    <input class="form-control form-control-lg rounded-pill me-2" 
-                           type="search" 
-                           placeholder="🔍 Search for food or cuisines..." 
-                           aria-label="Search"
-                           style="height: 40px;">
-                    <button class="btn btn-danger rounded-pill px-3" 
-                            type="submit"
-                            style="height: 40px;">
-                        Search
-                    </button>
-                </form>
-            </div>
-            
-            <!-- Location Selector -->
-            <div class="input-group ms-2" style="width: 200px; height: 40px;">
-                <span class="input-group-text bg-danger text-white px-2">
-                    <i class="fas fa-map-marker-alt"></i>
-                </span>
-                <select class="form-select">
-                    <option selected disabled>Location</option>
-                    <option>Jaipur</option>
-                    <option>Delhi</option>
-                    <option>Mumbai</option>
-                    <option>Bangalore</option>
-                </select>
-            </div>
+        </form>
+
+        <div class="input-group ms-2">
+            <span class="input-group-text bg-danger text-white px-2">
+                <i class="fas fa-map-marker-alt"></i>
+            </span>
+            <select class="form-select">
+                <option selected disabled>Location</option>
+                <option>Jaipur</option>
+                <option>Delhi</option>
+                <option>Mumbai</option>
+                <option>Bangalore</option>
+            </select>
         </div>
+    </div>
+
 
         <!-- Right: Buttons -->
         <div class="d-flex align-items-center gap-2">
@@ -424,3 +399,18 @@ body.dark-mode {
 
 </body>
 </html>
+
+    <!-- Right: Buttons -->
+    <div class="d-flex align-items-center gap-2">
+        <a href="menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
+        <a href="cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
+
+        <?php if (isset($_SESSION['logged_in'])): ?>
+            <a href="logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
+        <?php else: ?>
+            <a href="login.php" class="btn btn-danger px-3 py-1">Login</a>
+            <a href="signup.php" class="btn btn-danger px-3 py-1">Sign Up</a>
+        <?php endif; ?>
+    </div>
+</header>
+
