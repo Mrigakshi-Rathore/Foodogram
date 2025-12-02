@@ -150,25 +150,74 @@ include('header.php');
       }
       .card {
         padding: 20px;
+        margin: 15px auto;
+        width: 95%;
       }
       .floating-icons span {
         font-size: 18px;
       }
+      h2 {
+        font-size: 1.3rem;
+      }
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      ul {
+        padding-left: 1rem;
+      }
+      ul li {
+        margin-bottom: 8px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .heading {
+        height: 80px;
+        padding: 10px 0;
+      }
+      .main-heading {
+        font-size: 1.8rem;
+      }
+      .card {
+        padding: 15px;
+        margin: 10px auto;
+        width: 98%;
+        border-radius: 12px;
+      }
+      h2 {
+        font-size: 1.2rem;
+        margin-top: 20px;
+      }
+      p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      ul {
+        padding-left: 0.8rem;
+      }
+      ul li {
+        margin-bottom: 6px;
+        font-size: 0.9rem;
+      }
+      body {
+        padding-bottom: 80px;
+      }
+      .footer {
+        font-size: 14px;
+      }
     }
     /* -------- HEADER -------- */
 header {
-  height: 200px;
+  height: 80px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
 #logo {
-  height: 135px;
-  width: 135px;
+  height: 60px;
+  width: 60px;
   margin-top: 0;
   margin-left: 15px;
   border-radius: 50%;
@@ -194,6 +243,75 @@ button i {
 
 .btn-white i.fas.fa-bars {
   font-size: 2.2rem !important;
+}
+
+/* Responsive header adjustments */
+@media (max-width: 768px) {
+  header {
+    height: auto;
+    padding: 10px 15px;
+  }
+  #logo {
+    height: 50px;
+    width: 50px;
+    margin-left: 10px;
+  }
+  .header-search-form {
+    max-width: 300px !important;
+  }
+  .header-search-form .form-control {
+    min-width: 150px;
+    font-size: 0.9rem;
+  }
+  .input-group {
+    width: 120px !important;
+    height: 35px !important;
+  }
+  .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    height: auto;
+    padding: 10px;
+  }
+  #logo {
+    height: 40px;
+    width: 40px;
+    margin-left: 5px;
+  }
+  .header-search-form {
+    max-width: 100% !important;
+    margin: 5px 0;
+  }
+  .header-search-form .form-control {
+    width: 20rem;
+    font-size: 0.8rem;
+  }
+  .input-group {
+    width: 100px !important;
+    height: 30px !important;
+  }
+  .btn {
+    padding: 0.15rem 0.3rem;
+    font-size: 0.7rem;
+  }
+  .d-flex.align-items-center.gap-3 {
+    flex-wrap: wrap;
+    gap: 5px !important;
+    justify-content: center;
+  }
+  .d-flex.align-items-center.gap-2 {
+    flex-wrap: wrap;
+    gap: 5px !important;
+    justify-content: center;
+  }
 }
 
 /* -------- FOOTER -------- */
@@ -226,27 +344,29 @@ button i {
 <body>
 <!-- Header -->
 <header id="header" class="d-flex align-items-center justify-content-between px-3 py-2 bg-black">
-  <!-- Left: Hamburger + Logo -->
-  <div class="d-flex align-items-center gap-3">
-    <button class="btn btn-sm btn-white p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
-      <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
-    </button>
-    <img id="logo" src="images/logo.jpg" alt="Logo" class="me-2" />
-    
+  <!-- Left: Hamburger + Logo + Search + Location -->
+  <div class="d-flex flex-column align-items-center gap-3">
+    <div class="d-flex flex-column align-items-center gap-1">
+      <button class="btn btn-sm btn-white p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
+        <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+      </button>
+      <img id="logo" src="images/logo.jpg" alt="Logo" style="height: 70px; width: 70px; border-radius: 50%;" />
+    </div>
+
          <!-- Fixed Search Bar -->
-<form class="d-flex align-items-center header-search-form" action="search.php" method="GET">
-    <input class="form-control form-control-lg rounded-pill me-2" 
-           type="search" 
-           name="q"  
-           placeholder="🔍 Search for food or cuisines..." 
+<form class="d-flex flex-column header-search-form" action="search.php" method="GET">
+    <input class="form-control form-control-lg rounded-pill mb-2"
+           type="search"
+           name="q"
+           placeholder="🔍 Search for food or cuisines..."
            aria-label="Search"
            required>
-    <button class="btn btn-danger rounded-pill px-3" type="submit">
+    <button class="btn btn-danger rounded-pill px-3 align-self-center" type="submit">
         Search
     </button>
 </form>
     <!-- Location Selector -->
-    <div class="input-group ms-2" style="width: 200px; height: 40px;">
+    <div class="input-group" style="width: 150px; height: 35px;">
       <span class="input-group-text bg-danger text-white px-2">
         <i class="fas fa-map-marker-alt"></i>
       </span>
@@ -261,17 +381,15 @@ button i {
   </div>
 
   <!-- Right: Buttons -->
-  <div class="d-flex align-items-center gap-2">
+  <div class="d-flex align-items-center gap-3">
     <a href="menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
     <a href="cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
-    
+
     <?php if (isset($_SESSION['logged_in'])): ?>
       <a href="logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
     <?php else: ?>
       <a href="login.php" class="btn btn-danger px-3 py-1">Login</a>
     <?php endif; ?>
-    
-    <button id="darkModeToggle" class="btn btn-outline-light ms-1 px-3 py-1">🌙 Dark Mode</button>
   </div>
 </header>
 
