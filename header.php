@@ -232,6 +232,38 @@ header {
 
 }
 
+/* -------------------------------------- */
+/* 🔥 Improved Navbar Hover Effect        */
+/* -------------------------------------- */
+
+.offcanvas-body .nav-link {
+    position: relative;
+    padding: 8px 5px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease-in-out;
+    color: #ffffff !important;
+}
+
+.offcanvas-body .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 0%;
+    height: 2px;
+    background-color: #ff4d4d;
+    transition: width 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.offcanvas-body .nav-link:hover {
+    color: #ff4d4d !important;
+    transform: translateX(5px);
+}
+
+.offcanvas-body .nav-link:hover::after {
+    width: 100%;
+}
 
     </style>
 </head>
