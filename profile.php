@@ -484,7 +484,7 @@ $user_data = [
     }
 
     .text-muted{
-      color: #d4e5eaff;
+      color: #e4eef1ff;
     }
   </style>
 </head>
