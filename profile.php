@@ -215,6 +215,10 @@ $user_data = [
       border: 3px solid #1a1a1a;
     }
 
+    .timeline-item .text-muted {
+      color: #d4e5eaff;
+    }
+
     /* Badges */
     .badge-premium {
       background: linear-gradient(45deg, #FFD700, #FFA500);
@@ -477,6 +481,10 @@ $user_data = [
         width: 100%;
         margin-top: 1rem;
       }
+    }
+
+    .text-muted{
+      color: #d4e5eaff;
     }
   </style>
 </head>
