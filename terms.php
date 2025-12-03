@@ -207,9 +207,9 @@ include('header.php');
         font-size: 14px;
       }
     }
-    /* -------- HEADER -------- */
+/* -------- HEADER -------- */
 header {
-  height: 80px;
+  height: auto;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -312,6 +312,11 @@ button i {
     gap: 5px !important;
     justify-content: center;
   }
+  /* Mobile: Stack all sections vertically */
+  header > div {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* -------- FOOTER -------- */
@@ -344,53 +349,53 @@ button i {
 <body>
 <!-- Header -->
 <header id="header" class="d-flex align-items-center justify-content-between px-3 py-2 bg-black">
-  <!-- Left: Hamburger + Logo + Search + Location -->
-  <div class="d-flex flex-column align-items-center gap-3">
-    <div class="d-flex flex-column align-items-center gap-1">
-      <button class="btn btn-sm btn-white p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
-        <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
-      </button>
-      <img id="logo" src="images/logo.jpg" alt="Logo" style="height: 70px; width: 70px; border-radius: 50%;" />
-    </div>
+    <!-- Left: Hamburger + Logo -->
+    <div class="d-flex align-items-center gap-3">
+        <button class="btn btn-sm btn-white p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
+            <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+        </button>
+        <img id="logo" src="images/logo.jpg" alt="Logo" class="me-2" />
 
-         <!-- Fixed Search Bar -->
-<form class="d-flex flex-column header-search-form" action="search.php" method="GET">
-    <input class="form-control form-control-lg rounded-pill mb-2"
+     <!-- Fixed Search Bar -->
+<form class="d-flex align-items-center header-search-form" action="search.php" method="GET">
+    <input class="form-control form-control-lg rounded-pill me-2"
            type="search"
            name="q"
            placeholder="🔍 Search for food or cuisines..."
            aria-label="Search"
            required>
-    <button class="btn btn-danger rounded-pill px-3 align-self-center" type="submit">
+    <button class="btn btn-danger rounded-pill px-3" type="submit">
         Search
     </button>
 </form>
-    <!-- Location Selector -->
-    <div class="input-group" style="width: 150px; height: 35px;">
-      <span class="input-group-text bg-danger text-white px-2">
-        <i class="fas fa-map-marker-alt"></i>
-      </span>
-      <select class="form-select">
-        <option selected disabled>Location</option>
-        <option>Jaipur</option>
-        <option>Delhi</option>
-        <option>Mumbai</option>
-        <option>Bangalore</option>
-      </select>
-    </div>
-  </div>
 
-  <!-- Right: Buttons -->
-  <div class="d-flex align-items-center gap-3">
-    <a href="menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
-    <a href="cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
+    <div class="input-group ms-2">
+        <span class="input-group-text bg-danger text-white px-2">
+            <i class="fas fa-map-marker-alt"></i>
+        </span>
+        <select class="form-select">
+            <option selected disabled>Location</option>
+            <option>Jaipur</option>
+            <option>Delhi</option>
+            <option>Mumbai</option>
+            <option>Bangalore</option>
+        </select>
+    </div>
+    </div>
+
+    <!-- Right: Buttons -->
+
+    <div class="d-flex align-items-center gap-2">
+        <a href="menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
+        <a href="cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
 
     <?php if (isset($_SESSION['logged_in'])): ?>
-      <a href="logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
+        <a href="logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
     <?php else: ?>
-      <a href="login.php" class="btn btn-danger px-3 py-1">Login</a>
+        <a href="login.php" class="btn btn-danger px-3 py-1">Login</a>
+       <a href="signup.php" class="btn btn-danger px-3 py-1">Sign Up</a>
     <?php endif; ?>
-  </div>
+
 </header>
 
 <!-- Offcanvas Menu -->
