@@ -3,13 +3,6 @@ session_start();
 $current_page = 'terms';
 ?>
 
-<?php
-session_start();
-$current_page = 'terms';
-$page_title = 'Terms & Conditions - Foodogram'; // Set page title for header
-include('header.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -209,15 +202,18 @@ include('header.php');
     }
 /* -------- HEADER -------- */
 header {
-  height: auto;
+  height: 200px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 #logo {
-  height: 60px;
-  width: 60px;
+  height: 135px;
+  width: 135px;
   margin-top: 0;
   margin-left: 15px;
   border-radius: 50%;
@@ -239,6 +235,7 @@ button i {
 .header-search-form .form-control {
   flex-grow: 1;
   min-width: 320px;
+  margin-top: 5px;
 }
 
 .btn-white i.fas.fa-bars {
@@ -347,8 +344,7 @@ button i {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-<!-- Header -->
-<header id="header" class="d-flex align-items-center justify-content-between px-3 py-2 bg-black">
+    <header id="header" class="d-flex align-items-center justify-content-between px-3 py-2 bg-black">
     <!-- Left: Hamburger + Logo -->
     <div class="d-flex align-items-center gap-3">
         <button class="btn btn-sm btn-white p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
@@ -381,7 +377,7 @@ button i {
             <option>Bangalore</option>
         </select>
     </div>
-    </div>
+</div>
 
     <!-- Right: Buttons -->
 
