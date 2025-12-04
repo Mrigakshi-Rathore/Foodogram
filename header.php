@@ -196,9 +196,86 @@
     width: 100%;
 }
 
+
+/* Light mode (default) */
+body.light-mode {
+    background-color: #ffffff;
+    color: #000;
+}
+
+.light-mode .navbar,
+.light-mode header {
+    background-color: #ffffff !important;
+    color: #000 !important;
+}
+
+/* Dark mode (already present but improving) */
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+.dark-mode header,
+.dark-mode .navbar,
+.dark-mode .offcanvas {
+    background-color: #1A1A1A !important;
+}
+
+.dark-mode .btn-outline-light {
+    border-color: #fff;
+    color: #fff;
+}
+
+.dark-mode .btn-outline-light:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Smooth transition */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 🔥 Global Loading Spinner */
+#globalLoader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(5px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+}
+
+#globalLoader .spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #fff;
+    border-top-color: #ff3c3c;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+
     </style>
 </head>
 <body>
+
+
+<div id="globalLoader">
+    <div class="spinner"></div>
+</div>
+
+
     <!-- Offcanvas Menu -->
     <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="darkMenu">
         <div class="offcanvas-header">
@@ -314,6 +391,66 @@
         </div>
     </div>
 
+
+        <!-- Right: Buttons -->
+        <div class="d-flex align-items-center gap-2">
+            <a href="menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
+            <a href="cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
+            <?php if (isset($_SESSION['logged_in'])): ?>
+                <a href="logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
+            <?php else: ?>
+                <a href="login.php" class="btn btn-danger px-3 py-1">Login</a>
+            <?php endif; ?>
+            <button id="darkModeToggle" class="btn btn-outline-light ms-1 px-3 py-1">🌙 Dark</button>
+        </div>
+    </header>
+
+   <?php if (isset($_SESSION['welcome_message'])): ?>
+    <div class="alert alert-success">
+        <?= $_SESSION['welcome_message'] ?>
+        <?php unset($_SESSION['welcome_message']); ?>
+    </div>
+<?php endif; ?>
+
+<!-- 🌙 Theme Toggle Script -->
+<script>
+    const toggleBtn = document.getElementById("darkModeToggle");
+    const body = document.body;
+
+    // Load saved theme on refresh
+    if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark-mode");
+        toggleBtn.textContent = "☀️ Light";
+    }
+
+    toggleBtn.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+
+        if (body.classList.contains("dark-mode")) {
+            toggleBtn.textContent = "☀️ Light";
+            localStorage.setItem("theme", "dark");
+        } else {
+            toggleBtn.textContent = "🌙 Dark";
+            localStorage.setItem("theme", "light");
+        }
+    });
+</script>
+<script>
+    function showLoader() {
+        document.getElementById("globalLoader").style.display = "flex";
+    }
+
+    function hideLoader() {
+        document.getElementById("globalLoader").style.display = "none";
+    }
+
+    // Auto-hide loader after page load
+    window.addEventListener("load", () => hideLoader());
+</script>
+
+</body>
+</html>
+
     <!-- Right: Buttons -->
     <div class="d-flex align-items-center gap-2">
         <a href="menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
@@ -327,3 +464,4 @@
         <?php endif; ?>
     </div>
 </header>
+

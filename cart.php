@@ -112,5 +112,7 @@ $mysqli->close();
    }
 });
  </script>
+ <button onclick="showLoader()" class="btn btn-danger">Add to Cart</button>
+
 </body>
 </html>
