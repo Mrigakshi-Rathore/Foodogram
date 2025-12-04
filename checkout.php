@@ -328,5 +328,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_order'])) {
         // Initial render
         renderOrder();
     </script>
+    <form method="POST" onsubmit="showLoader()">
+
 </body>
 </html>

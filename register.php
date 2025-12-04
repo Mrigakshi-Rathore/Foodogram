@@ -27,6 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+<form method="POST" onsubmit="showLoader()">
+
 
 <!-- Registration Form -->
 <form method="POST">

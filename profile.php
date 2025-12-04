@@ -215,6 +215,10 @@ $user_data = [
       border: 3px solid #1a1a1a;
     }
 
+    .timeline-item .text-muted {
+      color: #d4e5eaff;
+    }
+
     /* Badges */
     .badge-premium {
       background: linear-gradient(45deg, #FFD700, #FFA500);
@@ -294,41 +298,195 @@ $user_data = [
       box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
     }
 
+    /* Mobile Responsive Styles */
+    @media (max-width: 767px) {
+      /* Header Adjustments */
+      header {
+        height: auto;
+        padding: 0.5rem 0.25rem;
+        flex-direction: column;
+        align-items: stretch;
+      }
 
-    /* 1. Global Scrollbar */
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1; 
-    }
-    ::-webkit-scrollbar-thumb {
-        background: #888; 
-        border-radius: 5px;
-        border: 2px solid #f1f1f1;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background: #555; 
+      header .d-flex.align-items-center {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      #logo {
+        height: 50px;
+        width: 50px;
+        margin: 0;
+      }
+
+      .header-search-form {
+        max-width: 100% !important;
+        width: 100%;
+      }
+
+      .header-search-form .form-control {
+        min-width: auto;
+        flex-grow: 1;
+        font-size: 0.8rem;
+        padding: 0.375rem 0.75rem;
+      }
+
+      .header-search-form .btn {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.8rem;
+      }
+
+      .input-group {
+        width: 100% !important;
+        margin: 0.25rem 0;
+        height: 32px;
+      }
+
+      .input-group .form-select {
+        font-size: 0.8rem;
+        padding: 0.375rem 0.75rem;
+      }
+
+      .input-group-text {
+        padding: 0.375rem 0.5rem;
+        font-size: 0.8rem;
+      }
+
+      header .d-flex.align-items-center.gap-2 {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+      }
+
+      header .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+      }
+
+      /* Main Content */
+      .main-content {
+        padding: 1rem 0;
+      }
+
+      /* Profile Hero */
+      .profile-hero {
+        padding: 2rem 1rem;
+      }
+
+      .profile-hero h1 {
+        font-size: 2rem;
+      }
+
+      .profile-hero .lead {
+        font-size: 1rem;
+      }
+
+      /* Profile Avatar */
+      .profile-avatar {
+        width: 100px;
+        height: 100px;
+        margin: -50px auto 1rem;
+      }
+
+      /* Profile Card */
+      .profile-card {
+        padding: 1.5rem;
+        margin: 1rem 0;
+      }
+
+      .profile-card h2 {
+        font-size: 1.5rem;
+      }
+
+      .profile-card p.lead {
+        font-size: 1rem;
+      }
+
+      /* Stats Section */
+      .stat-card {
+        padding: 1.5rem 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .stat-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      .stat-card h4 {
+        font-size: 1.2rem;
+      }
+
+      .btn-profile {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      /* Activity Timeline */
+      .activity-timeline {
+        padding-left: 1rem;
+      }
+
+      .timeline-item {
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .timeline-item h5 {
+        font-size: 1rem;
+      }
+
+      .timeline-item p {
+        font-size: 0.9rem;
+      }
+
+      /* Quick Actions */
+      .quick-actions {
+        padding: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .action-btn {
+        padding: 1rem;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Footer */
+      .footer {
+        padding-top: 1.5rem;
+        padding-bottom: 1rem;
+        font-size: 16px;
+      }
+
+      .footer h5 {
+        font-size: 24px;
+      }
+
+      .footer .row > div {
+        margin-bottom: 1.5rem;
+      }
+
+      .btn-top {
+        width: 100%;
+        margin-top: 1rem;
+      }
     }
 
-    /* 2. Side Menu (Offcanvas) Scrollbar */
-    .offcanvas-body {
-        overflow-y: auto !important;
-        max-height: 100vh;
+    .text-muted{
+      color: #dee5e7ff;
     }
-    .offcanvas-body::-webkit-scrollbar {
-        width: 6px;
-    }
-    .offcanvas-body::-webkit-scrollbar-track {
-        background: #212529; /* Dark background */
-    }
-    .offcanvas-body::-webkit-scrollbar-thumb {
-        background: #666; 
-        border-radius: 4px;
-    }
-    .offcanvas-body::-webkit-scrollbar-thumb:hover {
-        background: #999; 
-    }
+    
   </style>
 </head>
 <body>
