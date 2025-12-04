@@ -236,6 +236,11 @@ body.dark-mode {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+
+    </style>
+</head>
+<body>
+
 /* 🔥 Global Loading Spinner */
 #globalLoader {
     position: fixed;
@@ -435,6 +440,8 @@ body.dark-mode {
         }
     });
 </script>
+
+
 <script>
     function showLoader() {
         document.getElementById("globalLoader").style.display = "flex";
@@ -447,6 +454,7 @@ body.dark-mode {
     // Auto-hide loader after page load
     window.addEventListener("load", () => hideLoader());
 </script>
+
 
 </body>
 </html>
