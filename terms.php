@@ -3,13 +3,6 @@ session_start();
 $current_page = 'terms';
 ?>
 
-<?php
-session_start();
-$current_page = 'terms';
-$page_title = 'Terms & Conditions - Foodogram'; // Set page title for header
-include('header.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -150,12 +143,64 @@ include('header.php');
       }
       .card {
         padding: 20px;
+        margin: 15px auto;
+        width: 95%;
       }
       .floating-icons span {
         font-size: 18px;
       }
+      h2 {
+        font-size: 1.3rem;
+      }
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      ul {
+        padding-left: 1rem;
+      }
+      ul li {
+        margin-bottom: 8px;
+      }
     }
-    /* -------- HEADER -------- */
+
+    @media (max-width: 576px) {
+      .heading {
+        height: 80px;
+        padding: 10px 0;
+      }
+      .main-heading {
+        font-size: 1.8rem;
+      }
+      .card {
+        padding: 15px;
+        margin: 10px auto;
+        width: 98%;
+        border-radius: 12px;
+      }
+      h2 {
+        font-size: 1.2rem;
+        margin-top: 20px;
+      }
+      p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      ul {
+        padding-left: 0.8rem;
+      }
+      ul li {
+        margin-bottom: 6px;
+        font-size: 0.9rem;
+      }
+      body {
+        padding-bottom: 80px;
+      }
+      .footer {
+        font-size: 14px;
+      }
+    }
+/* -------- HEADER -------- */
 header {
   height: 200px;
   background: rgba(255, 255, 255, 0.1);
@@ -190,10 +235,85 @@ button i {
 .header-search-form .form-control {
   flex-grow: 1;
   min-width: 320px;
+  margin-top: 5px;
 }
 
 .btn-white i.fas.fa-bars {
   font-size: 2.2rem !important;
+}
+
+/* Responsive header adjustments */
+@media (max-width: 768px) {
+  header {
+    height: auto;
+    padding: 10px 15px;
+  }
+  #logo {
+    height: 50px;
+    width: 50px;
+    margin-left: 10px;
+  }
+  .header-search-form {
+    max-width: 300px !important;
+  }
+  .header-search-form .form-control {
+    min-width: 150px;
+    font-size: 0.9rem;
+  }
+  .input-group {
+    width: 120px !important;
+    height: 35px !important;
+  }
+  .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    height: auto;
+    padding: 10px;
+  }
+  #logo {
+    height: 40px;
+    width: 40px;
+    margin-left: 5px;
+  }
+  .header-search-form {
+    max-width: 100% !important;
+    margin: 5px 0;
+  }
+  .header-search-form .form-control {
+    width: 20rem;
+    font-size: 0.8rem;
+  }
+  .input-group {
+    width: 100px !important;
+    height: 30px !important;
+  }
+  .btn {
+    padding: 0.15rem 0.3rem;
+    font-size: 0.7rem;
+  }
+  .d-flex.align-items-center.gap-3 {
+    flex-wrap: wrap;
+    gap: 5px !important;
+    justify-content: center;
+  }
+  .d-flex.align-items-center.gap-2 {
+    flex-wrap: wrap;
+    gap: 5px !important;
+    justify-content: center;
+  }
+  /* Mobile: Stack all sections vertically */
+  header > div {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* -------- FOOTER -------- */
@@ -224,55 +344,54 @@ button i {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-<!-- Header -->
-<header id="header" class="d-flex align-items-center justify-content-between px-3 py-2 bg-black">
-  <!-- Left: Hamburger + Logo -->
-  <div class="d-flex align-items-center gap-3">
-    <button class="btn btn-sm btn-white p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
-      <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
-    </button>
-    <img id="logo" src="images/logo.jpg" alt="Logo" class="me-2" />
-    
-         <!-- Fixed Search Bar -->
+    <header id="header" class="d-flex align-items-center justify-content-between px-3 py-2 bg-black">
+    <!-- Left: Hamburger + Logo -->
+    <div class="d-flex align-items-center gap-3">
+        <button class="btn btn-sm btn-white p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
+            <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+        </button>
+        <img id="logo" src="images/logo.jpg" alt="Logo" class="me-2" />
+
+     <!-- Fixed Search Bar -->
 <form class="d-flex align-items-center header-search-form" action="search.php" method="GET">
-    <input class="form-control form-control-lg rounded-pill me-2" 
-           type="search" 
-           name="q"  
-           placeholder="🔍 Search for food or cuisines..." 
+    <input class="form-control form-control-lg rounded-pill me-2"
+           type="search"
+           name="q"
+           placeholder="🔍 Search for food or cuisines..."
            aria-label="Search"
            required>
     <button class="btn btn-danger rounded-pill px-3" type="submit">
         Search
     </button>
 </form>
-    <!-- Location Selector -->
-    <div class="input-group ms-2" style="width: 200px; height: 40px;">
-      <span class="input-group-text bg-danger text-white px-2">
-        <i class="fas fa-map-marker-alt"></i>
-      </span>
-      <select class="form-select">
-        <option selected disabled>Location</option>
-        <option>Jaipur</option>
-        <option>Delhi</option>
-        <option>Mumbai</option>
-        <option>Bangalore</option>
-      </select>
-    </div>
-  </div>
 
-  <!-- Right: Buttons -->
-  <div class="d-flex align-items-center gap-2">
-    <a href="menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
-    <a href="cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
-    
+    <div class="input-group ms-2">
+        <span class="input-group-text bg-danger text-white px-2">
+            <i class="fas fa-map-marker-alt"></i>
+        </span>
+        <select class="form-select">
+            <option selected disabled>Location</option>
+            <option>Jaipur</option>
+            <option>Delhi</option>
+            <option>Mumbai</option>
+            <option>Bangalore</option>
+        </select>
+    </div>
+</div>
+
+    <!-- Right: Buttons -->
+
+    <div class="d-flex align-items-center gap-2">
+        <a href="menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
+        <a href="cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
+
     <?php if (isset($_SESSION['logged_in'])): ?>
-      <a href="logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
+        <a href="logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
     <?php else: ?>
-      <a href="login.php" class="btn btn-danger px-3 py-1">Login</a>
+        <a href="login.php" class="btn btn-danger px-3 py-1">Login</a>
+       <a href="signup.php" class="btn btn-danger px-3 py-1">Sign Up</a>
     <?php endif; ?>
-    
-    <button id="darkModeToggle" class="btn btn-outline-light ms-1 px-3 py-1">🌙 Dark Mode</button>
-  </div>
+
 </header>
 
 <!-- Offcanvas Menu -->
