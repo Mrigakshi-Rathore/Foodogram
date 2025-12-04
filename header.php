@@ -195,6 +195,8 @@
 .offcanvas-body .nav-link:hover::after {
     width: 100%;
 }
+
+
 /* Light mode (default) */
 body.light-mode {
     background-color: #ffffff;
@@ -263,13 +265,16 @@ body.dark-mode {
 }
 
 
+
     </style>
 </head>
 <body>
 
+
 <div id="globalLoader">
     <div class="spinner"></div>
 </div>
+
 
     <!-- Offcanvas Menu -->
     <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="darkMenu">
