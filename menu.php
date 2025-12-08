@@ -71,6 +71,7 @@ session_start();
         .menu-container {
             padding: 2rem 0;
             color: white;
+            margin-top: 220px;
         }
         
         .category-title {
@@ -180,6 +181,122 @@ session_start();
         @media (max-width: 768px) {
             .menu-img {
                 height: 150px;
+            }
+        }
+
+        /* Mobile responsiveness for header and menu items */
+        @media (max-width: 576px) {
+            header {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 10px;
+            }
+
+            header .d-flex {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            #logo {
+                height: 100px;
+                width: 100px;
+                margin-left: 0;
+                align-self: center;
+            }
+
+            .header-search-form {
+                width: 100%;
+            }
+
+            .header-search-form input {
+                width: 100%;
+                font-size: 14px;
+            }
+
+            .header-search-form button {
+                font-size: 14px;
+            }
+
+            .input-group {
+                width: 100%;
+                margin: 0;
+            }
+
+            .input-group select {
+                font-size: 14px;
+            }
+
+            header .d-flex:last-child {
+                flex-direction: row;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            header .btn {
+                font-size: 14px;
+                padding: 5px 10px;
+            }
+
+            .menu-container {
+                padding: 1rem 0;
+            }
+
+            .category-title {
+                font-size: 1.8rem;
+                margin: 1.5rem 0 0.5rem;
+                padding-bottom: 0.3rem;
+            }
+
+            .menu-card {
+                margin-bottom: 1rem;
+            }
+
+            .menu-img {
+                height: 180px;
+            }
+
+            .menu-body {
+                padding: 1rem;
+            }
+
+            .menu-title {
+                font-size: 1.3rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .menu-price {
+                font-size: 1.2rem;
+            }
+
+            .menu-description {
+                font-size: 0.9rem;
+                margin: 0.5rem 0;
+            }
+
+            .add-to-cart {
+                padding: 0.4rem 1rem;
+                font-size: 0.9rem;
+                min-height: 40px;
+            }
+
+            .veg-icon, .non-veg-icon {
+                font-size: 1rem;
+            }
+
+            .menu-rating {
+                font-size: 0.9rem;
+            }
+
+            .menu-badge {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.6rem;
+            }
+
+            .cart-toast {
+                bottom: 10px;
+                right: 10px;
+                padding: 10px 15px;
+                font-size: 0.9rem;
             }
         }
          /* Menu Category Styles */
@@ -377,7 +494,25 @@ session_start();
     <!-- Menu Content -->
     <div class="menu-container container">
         <h1 class="text-center mb-5" style="color: #ff6b6b; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Our Delicious Menu</h1>
+
+        <!-- Filter & Sort Controls -->
+        <div class="menu-controls">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="veg">Veg</button>
+            <button class="filter-btn" data-filter="non-veg">Non-Veg</button>
+            <button class="filter-btn" data-filter="bestseller">Bestseller</button>
+            <button class="filter-btn" data-filter="chef-special">Chef's Special</button>
+            <select class="sort-select" id="sortSelect">
+                <option value="">Sort by</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating">Rating</option>
+                <option value="name">Name</option>
+            </select>
+        </div>
+
         <!-- Menu Container -->
+
 
        
         
