@@ -917,8 +917,8 @@ session_start();
                 <!-- Item D1 -->
 <div class="col-md-4">
     <div class="menu-card" data-id="41" data-name="Gulab Jamun" data-price="120"
-         data-img="https://images.unsplash.com/photo-1634141533648-6d5c18a09b6b">
-        <img src="https://images.unsplash.com/photo-1634141533648-6d5c18a09b6b" class="menu-img" alt="Gulab Jamun">
+         data-img="https://media.istockphoto.com/id/163064596/photo/gulab-jamun.webp?a=1&b=1&s=612x612&w=0&k=20&c=F_5_AgCdrsecO13W-wiuCZAwYZPBpN3UETTyYtQQlLM=">
+        <img src="https://media.istockphoto.com/id/163064596/photo/gulab-jamun.webp?a=1&b=1&s=612x612&w=0&k=20&c=F_5_AgCdrsecO13W-wiuCZAwYZPBpN3UETTyYtQQlLM=" class="menu-img" alt="Gulab Jamun">
         <div class="menu-body">
             <h3 class="menu-title"><i class="fas fa-leaf veg-icon"></i> Gulab Jamun <span class="menu-rating">★ 4.9</span></h3>
             <p class="menu-description">Soft khoya balls soaked in rose-flavored sugar syrup.</p>
@@ -933,8 +933,8 @@ session_start();
 <!-- Item D2 -->
 <div class="col-md-4">
     <div class="menu-card" data-id="42" data-name="Rasgulla" data-price="110"
-         data-img="https://images.unsplash.com/photo-1603190281371-57426ddf44e6">
-        <img src="https://images.unsplash.com/photo-1603190281371-57426ddf44e6" class="menu-img" alt="Rasgulla">
+         data-img="https://media.istockphoto.com/id/1044080542/photo/indian-rasgulla-or-rosogulla-dessert-sweet-served-in-a-bowl-selective-focus.webp?a=1&b=1&s=612x612&w=0&k=20&c=DIQag-19lJnJ1PX5T2ppu2fc3hH0Pg83j2-9A-YPeSo=">
+        <img src="https://media.istockphoto.com/id/1044080542/photo/indian-rasgulla-or-rosogulla-dessert-sweet-served-in-a-bowl-selective-focus.webp?a=1&b=1&s=612x612&w=0&k=20&c=DIQag-19lJnJ1PX5T2ppu2fc3hH0Pg83j2-9A-YPeSo=" class="menu-img" alt="Rasgulla">
         <div class="menu-body">
             <h3 class="menu-title"><i class="fas fa-leaf veg-icon"></i> Rasgulla <span class="menu-rating">★ 4.8</span></h3>
             <p class="menu-description">Bengali delight – soft chenna balls in sugar syrup.</p>
@@ -949,8 +949,8 @@ session_start();
 <!-- Item D3 -->
 <div class="col-md-4">
     <div class="menu-card" data-id="43" data-name="Kaju Katli" data-price="250"
-         data-img="https://images.unsplash.com/photo-1632127965553-3d39cda3979c">
-        <img src="https://images.unsplash.com/photo-1632127965553-3d39cda3979c" class="menu-img" alt="Kaju Katli">
+         data-img="https://images.unsplash.com/photo-1699708263762-00ca477760bd?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2FqdSUyMGthdGxpfGVufDB8fDB8fHww">
+        <img src="https://images.unsplash.com/photo-1699708263762-00ca477760bd?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2FqdSUyMGthdGxpfGVufDB8fDB8fHww" class="menu-img" alt="Kaju Katli">
         <div class="menu-body">
             <h3 class="menu-title"><i class="fas fa-leaf veg-icon"></i> Kaju Katli <span class="menu-rating">★ 4.9</span></h3>
             <p class="menu-description">Classic cashew sweet with silver leaf garnish.</p>
@@ -965,8 +965,8 @@ session_start();
 <!-- Item D4 -->
 <div class="col-md-4">
     <div class="menu-card" data-id="44" data-name="Jalebi" data-price="100"
-         data-img="https://images.unsplash.com/photo-1626082924907-21b1e2edbb99">
-        <img src="https://images.unsplash.com/photo-1626082924907-21b1e2edbb99" class="menu-img" alt="Jalebi">
+         data-img="https://media.istockphoto.com/id/1159362325/photo/bread-pakora.webp?a=1&b=1&s=612x612&w=0&k=20&c=25Gl2wlqXWDry_PXEtvJ2ju5T8EjqG2Da3G8aa77Pmk=">
+        <img src="https://media.istockphoto.com/id/1159362325/photo/bread-pakora.webp?a=1&b=1&s=612x612&w=0&k=20&c=25Gl2wlqXWDry_PXEtvJ2ju5T8EjqG2Da3G8aa77Pmk=" class="menu-img" alt="Jalebi">
         <div class="menu-body">
             <h3 class="menu-title"><i class="fas fa-leaf veg-icon"></i> Jalebi <span class="menu-rating">★ 4.7</span></h3>
             <p class="menu-description">Crispy, golden jalebis soaked in saffron syrup.</p>
@@ -981,8 +981,8 @@ session_start();
 <!-- Item D5 -->
 <div class="col-md-4">
     <div class="menu-card" data-id="45" data-name="Rasmalai" data-price="180"
-         data-img="https://images.unsplash.com/photo-1634141421022-73d2c8dbe528">
-        <img src="https://images.unsplash.com/photo-1634141421022-73d2c8dbe528" class="menu-img" alt="Rasmalai">
+         data-img="https://media.istockphoto.com/id/469845221/photo/raj-bhog-a-traditional-sweet-dish-from-bengal.jpg?s=612x612&w=0&k=20&c=a2ZeBAmhIW8UYtk5vRD4MA14J1BqbLKSJIktNpMH6fA=">
+        <img src="https://media.istockphoto.com/id/469845221/photo/raj-bhog-a-traditional-sweet-dish-from-bengal.jpg?s=612x612&w=0&k=20&c=a2ZeBAmhIW8UYtk5vRD4MA14J1BqbLKSJIktNpMH6fA=" class="menu-img" alt="Rasmalai">
         <div class="menu-body">
             <h3 class="menu-title"><i class="fas fa-leaf veg-icon"></i> Rasmalai <span class="menu-rating">★ 4.8</span></h3>
             <p class="menu-description">Soft rasgullas soaked in creamy saffron milk.</p>
@@ -997,8 +997,8 @@ session_start();
 <!-- Item D6 -->
 <div class="col-md-4">
     <div class="menu-card" data-id="46" data-name="Besan Ladoo" data-price="150"
-         data-img="https://images.unsplash.com/photo-1626082990044-51e8ef5d1eb6">
-        <img src="https://images.unsplash.com/photo-1626082990044-51e8ef5d1eb6" class="menu-img" alt="Besan Ladoo">
+        data-img="https://media.istockphoto.com/id/1151408298/photo/ramadhan-cake-nastar-serve-to-celebrate-eid-al-ftr.jpg?s=612x612&w=0&k=20&c=alD-BjvqfIpGW6oONmAuUY4O9AHz1DGctNeanRHdocQ=">
+        <img src="https://media.istockphoto.com/id/1151408298/photo/ramadhan-cake-nastar-serve-to-celebrate-eid-al-ftr.jpg?s=612x612&w=0&k=20&c=alD-BjvqfIpGW6oONmAuUY4O9AHz1DGctNeanRHdocQ=" class="menu-img" alt="Besan Ladoo">
         <div class="menu-body">
             <h3 class="menu-title"><i class="fas fa-leaf veg-icon"></i> Besan Ladoo <span class="menu-rating">★ 4.6</span></h3>
             <p class="menu-description">Traditional ladoos made with roasted gram flour and ghee.</p>
@@ -1013,8 +1013,8 @@ session_start();
 <!-- Item D7 -->
 <div class="col-md-4">
     <div class="menu-card" data-id="47" data-name="Kulfi" data-price="120"
-         data-img="https://images.unsplash.com/photo-1626082923210-278ade41b1a7">
-        <img src="https://images.unsplash.com/photo-1626082923210-278ade41b1a7" class="menu-img" alt="Kulfi">
+         data-img="https://media.istockphoto.com/id/657073780/photo/rajwari-or-rajwadi-sweet-kesar-badam-pista-kulfi-or-ice-cream-candy.webp?a=1&b=1&s=612x612&w=0&k=20&c=D4gZyAdK340jjnX8KGhXaflZISqBkmdd9Od0wTmQi1U=">
+        <img src="https://media.istockphoto.com/id/657073780/photo/rajwari-or-rajwadi-sweet-kesar-badam-pista-kulfi-or-ice-cream-candy.webp?a=1&b=1&s=612x612&w=0&k=20&c=D4gZyAdK340jjnX8KGhXaflZISqBkmdd9Od0wTmQi1U=" class="menu-img" alt="Kulfi">
         <div class="menu-body">
             <h3 class="menu-title"><i class="fas fa-leaf veg-icon"></i> Kulfi <span class="menu-rating">★ 4.7</span></h3>
             <p class="menu-description">Creamy traditional Indian ice cream with cardamom & pistachio.</p>
@@ -1029,8 +1029,8 @@ session_start();
 <!-- Item D8 -->
 <div class="col-md-4">
     <div class="menu-card" data-id="48" data-name="Malpua" data-price="140"
-         data-img="https://images.unsplash.com/photo-1635931744031-52a8d92c16f1">
-        <img src="https://images.unsplash.com/photo-1635931744031-52a8d92c16f1" class="menu-img" alt="Malpua">
+         data-img="https://media.istockphoto.com/id/843599456/photo/indian-sweet-malpua.webp?a=1&b=1&s=612x612&w=0&k=20&c=X_Mof-E_ssW3yf8vzYuM3pFtqDsNd65FHmpQ5b_x608=">
+        <img src="https://media.istockphoto.com/id/843599456/photo/indian-sweet-malpua.webp?a=1&b=1&s=612x612&w=0&k=20&c=X_Mof-E_ssW3yf8vzYuM3pFtqDsNd65FHmpQ5b_x608=" class="menu-img" alt="Malpua">
         <div class="menu-body">
             <h3 class="menu-title"><i class="fas fa-leaf veg-icon"></i> Malpua <span class="menu-rating">★ 4.6</span></h3>
             <p class="menu-description">Sweet pancakes dipped in sugar syrup, topped with rabri.</p>
@@ -1045,8 +1045,8 @@ session_start();
 <!-- Item D9 -->
 <div class="col-md-4">
     <div class="menu-card" data-id="49" data-name="Sandesh" data-price="160"
-         data-img="https://images.unsplash.com/photo-1634141422080-4cfb5ef76e5f">
-        <img src="https://images.unsplash.com/photo-1634141422080-4cfb5ef76e5f" class="menu-img" alt="Sandesh">
+         data-img="https://media.istockphoto.com/id/469850785/photo/sandesh-a-bengali-sweet-dish.webp?a=1&b=1&s=612x612&w=0&k=20&c=-4FMOU1ReuR4VuvVltYDmwntDA12309vTO-yD6dj1SY=">
+        <img src="https://media.istockphoto.com/id/469850785/photo/sandesh-a-bengali-sweet-dish.webp?a=1&b=1&s=612x612&w=0&k=20&c=-4FMOU1ReuR4VuvVltYDmwntDA12309vTO-yD6dj1SY=" class="menu-img" alt="Sandesh">
         <div class="menu-body">
             <h3 class="menu-title"><i class="fas fa-leaf veg-icon"></i> Sandesh <span class="menu-rating">★ 4.7</span></h3>
             <p class="menu-description">Delicate Bengali sweet made from chenna and sugar.</p>
@@ -1061,8 +1061,8 @@ session_start();
 <!-- Item D10 -->
 <div class="col-md-4">
     <div class="menu-card" data-id="50" data-name="Gajar Ka Halwa" data-price="170"
-         data-img="https://images.unsplash.com/photo-1617191517461-68cfa2e3d1b2">
-        <img src="https://images.unsplash.com/photo-1617191517461-68cfa2e3d1b2" class="menu-img" alt="Gajar Ka Halwa">
+         data-img="https://media.istockphoto.com/id/1277967230/photo/image-blue-bowl-and-plate-with-spoon-gajar-ka-halwa-sweet-indian-dessert-pudding-bowl-of.webp?a=1&b=1&s=612x612&w=0&k=20&c=X6phevrvXNL0DjR2ZL5POtOiD7ALj5Jqw3u0TLeKV2w=">
+        <img src="https://media.istockphoto.com/id/1277967230/photo/image-blue-bowl-and-plate-with-spoon-gajar-ka-halwa-sweet-indian-dessert-pudding-bowl-of.webp?a=1&b=1&s=612x612&w=0&k=20&c=X6phevrvXNL0DjR2ZL5POtOiD7ALj5Jqw3u0TLeKV2w=" class="menu-img" alt="Gajar Ka Halwa">
         <div class="menu-body">
             <h3 class="menu-title"><i class="fas fa-leaf veg-icon"></i> Gajar Ka Halwa <span class="menu-rating">★ 4.9</span></h3>
             <p class="menu-description">Slow-cooked carrot halwa with milk, ghee & dry fruits.</p>
