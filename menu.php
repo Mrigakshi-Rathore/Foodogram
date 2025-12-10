@@ -17,7 +17,21 @@ session_start();
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    position: relative; /* Changed from sticky */
+    position: relative;
+}
+
+/* Sticky header for desktop and laptop only */
+@media (min-width: 768px) {
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .menu-container {
+        margin-top: 0;
+        padding-top: 200px;
+    }
 }
 
 
@@ -301,7 +315,8 @@ session_start();
         }
          /* Menu Category Styles */
         .menu-container {
-            padding: 40px 0;
+            margin-top: 75px;
+            padding: 0px 0;
             color: white;
         }
         
