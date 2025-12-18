@@ -52,3 +52,15 @@ $menuData = [
             'name' => 'Nachos with Cheese',
             'price' => 150,
             'description' => 'Loaded nachos topped with melted cheese and jalapeños.',
+            'image' => 'https://images.unsplash.com/photo-1601924994987-69e6cda3f9f2',
+            'veg' => true,
+            'rating' => 4.8
+        ],
+        [
+            'id' => 26,
+            'name' => 'Onion Rings',
+            'price' => 149,
+            'description' => 'Crispy onion rings with ketchup dip.',
+            'image' => 'https://images.unsplash.com/photo-1625940310816-17f65c1dcaf4',
+            'veg' => true,
+            'rating' => 4.5
