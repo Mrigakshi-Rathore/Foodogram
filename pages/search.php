@@ -75,7 +75,7 @@ session_start();
         
         <!-- Back to Home -->
         <div class="text-center mt-4">
-            <a href="index.php" class="btn btn-outline-secondary">Back to Home</a>
+            <a href="../index.php" class="btn btn-outline-secondary">Back to Home</a>
         </div>
     </div>
 
