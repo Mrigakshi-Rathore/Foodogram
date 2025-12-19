@@ -91,6 +91,12 @@ session_start();
             margin-bottom: 1.5rem;
             transition: transform 0.3s ease;
             color: white;
+            <?php if ($item['isVeg']) : ?>
+                <span class="veg-icon">🟢 Veg</span>
+            <?php else : ?>
+                <span class="non-veg-icon">🔴 Non-Veg</span>
+            <?php endif; ?>
+
         }
         
         .menu-card:hover {
@@ -206,19 +212,55 @@ session_start();
             margin-bottom: 30px;
             backdrop-filter: blur(5px);
         }
+
+        @media (max-width: 576px) {
+            .menu-filters {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding-bottom: 5px;
+            }
+
+            .menu-filters::-webkit-scrollbar {
+            display: none;
+            }
+        }
+
+
         .filter-btn {
             background: transparent;
             border: 1px solid #ff6b6b;
-            color: white;
-            padding: 8px 15px;
-            margin-right: 10px;
+            color: #ff6b6b;
+            padding: 8px 16px;
             border-radius: 20px;
-            transition: all 0.3s;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
         }
+
+        /* Hover effect */
+        .filter-btn:hover {
+            background-color: rgba(255, 107, 107, 0.15);
+        }
+
+        /* Active button */
+        .filter-btn.active {
+            background-color: #ff6b6b;
+            color: #fff;
+            border-color: #ff6b6b;
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 576px) {
+            .filter-btn {
+                flex: 1 1 auto;
+                text-align: center;
+                padding: 10px;
+                font-size: 13px;
+            }
+        }
+
         
-        .filter-btn.active, .filter-btn:hover {
-            background: #ff6b6b;
-        }
         
         .sort-select {
             background: rgba(255, 255, 255, 0.1);
@@ -396,6 +438,15 @@ session_start();
         </div>
 
         <!-- Right: Buttons -->
+         <div class="filter-wrapper">
+            <div class="menu-filters mb-3">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="veg">🟢 Veg</button>
+                <button class="filter-btn" data-filter="non-veg">🔴 Non-Veg</button>
+                
+            </div>
+        </div>
+
         <div class="d-flex align-items-center gap-2">
             <a href="menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
             <a href="#" class="btn btn-danger px-3 py-1" data-bs-toggle="modal" data-bs-target="#cartModal">🛒 Cart</a>
@@ -455,6 +506,7 @@ session_start();
         <div class="menu-card" 
              data-id="2"
              data-name="Loaded Nachos"
+             data-veg="false"
              data-price="350"
              data-img="https://images.unsplash.com/photo-1529563021893-cc83c992d75d">
             <img src="https://images.unsplash.com/photo-1529563021893-cc83c992d75d" class="menu-img" alt="Loaded Nachos">
@@ -477,6 +529,7 @@ session_start();
         <div class="menu-card" 
              data-id="3"
              data-name="Spring Rolls"
+             data-veg="true"
              data-price="299"
              data-img="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d">
             <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d" class="menu-img" alt="Spring Rolls">
@@ -496,7 +549,7 @@ session_start();
 
     <!-- Item A1 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="21" data-name="Cheese Balls" data-price="199"
+    <div class="menu-card" data-id="21" data-name="Cheese Balls" data-price="199" data-veg="true"
          data-img="https://images.unsplash.com/photo-1604908812172-f99b9f79e5c5">
         <img src="https://images.unsplash.com/photo-1714256635057-2a831a5c7e8d?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="menu-img" alt="Cheese Balls">
         <div class="menu-body">
@@ -516,7 +569,7 @@ session_start();
 
 <!-- Item A4 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="24" data-name="Stuffed Mushrooms" data-price="259"
+    <div class="menu-card" data-id="24" data-name="Stuffed Mushrooms" data-price="259" data-veg="true"
          data-img="https://images.unsplash.com/photo-1603048335149-4fc0f8a2e74e">
         <img src="https://images.unsplash.com/photo-1603048335149-4fc0f8a2e74e" class="menu-img" alt="Stuffed Mushrooms">
         <div class="menu-body">
@@ -536,7 +589,7 @@ session_start();
 
 <!-- Item A3 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="23" data-name="Nachos with Cheese" data-price="150"
+    <div class="menu-card" data-id="23" data-name="Nachos with Cheese" data-price="150" data-veg="true"
          data-img="https://images.unsplash.com/photo-1601924994987-69e6cda3f9f2">
         <img src="https://images.unsplash.com/photo-1601924994987-69e6cda3f9f2" class="menu-img" alt="Nachos with Cheese">
         <div class="menu-body">
@@ -552,7 +605,7 @@ session_start();
 
 <!-- Item A6 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="26" data-name="Onion Rings" data-price="149"
+    <div class="menu-card" data-id="26" data-name="Onion Rings" data-price="149" data-veg="true"
          data-img="https://images.unsplash.com/photo-1625940310816-17f65c1dcaf4">
         <img src="https://images.unsplash.com/photo-1625940310816-17f65c1dcaf4" class="menu-img" alt="Onion Rings">
         <div class="menu-body">
@@ -568,7 +621,7 @@ session_start();
 
 <!-- Item A7 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="27" data-name="Bruschetta" data-price="199"
+    <div class="menu-card" data-id="27" data-name="Bruschetta" data-price="199" data-veg="true"
          data-img="https://images.unsplash.com/photo-1604908176839-7a4ab3e2f063">
         <img src="https://images.unsplash.com/photo-1604908176839-7a4ab3e2f063" class="menu-img" alt="Bruschetta">
         <div class="menu-body">
@@ -584,7 +637,7 @@ session_start();
 
 <!-- Item A8 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="28" data-name="French Fries" data-price="199"
+    <div class="menu-card" data-id="28" data-name="French Fries" data-price="199" data-veg="true"
          data-img="https://images.unsplash.com/photo-1576107232681-bd0d5b6b5c5a">
         <img src="https://images.unsplash.com/photo-1576107232681-bd0d5b6b5c5a" class="menu-img" alt="French Fries">
         <div class="menu-body">
@@ -600,7 +653,7 @@ session_start();
 
 <!-- Item A9 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="29" data-name="Veg Pakora" data-price="299"
+    <div class="menu-card" data-id="29" data-name="Veg Pakora" data-price="299" data-veg="true"
          data-img="https://images.unsplash.com/photo-1617196039818-3a4f78df233c">
         <img src="https://images.unsplash.com/photo-1617196039818-3a4f78df233c" class="menu-img" alt="Veg Pakora">
         <div class="menu-body">
@@ -616,7 +669,7 @@ session_start();
 
 <!-- Item A10 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="30" data-name="Chicken Nuggets" data-price="349"
+    <div class="menu-card" data-id="30" data-name="Chicken Nuggets" data-price="349" data-veg="false"
          data-img="https://images.unsplash.com/photo-1586816001966-79d3b33f7a5b">
         <img src="https://images.unsplash.com/photo-1586816001966-79d3b33f7a5b" class="menu-img" alt="Chicken Nuggets">
         <div class="menu-body">
@@ -641,6 +694,7 @@ session_start();
              data-id="4"
              data-name="Creamy Pasta"
              data-price="160"
+             data-veg="true"
              data-img="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
             <div class="position-relative">
                 <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" class="menu-img" alt="Creamy Pasta">
@@ -665,6 +719,7 @@ session_start();
         <div class="menu-card" 
              data-id="5"
              data-name="Grilled Steak"
+             data-veg="false"
              data-price="199"
              data-img="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
             <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" class="menu-img" alt="Grilled Steak">
@@ -683,7 +738,7 @@ session_start();
     </div>
                 <!-- Item M1 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="31" data-name="Paneer Butter Masala" data-price="220"
+    <div class="menu-card" data-id="31" data-name="Paneer Butter Masala" data-price="220" data-veg="true"
          data-img="https://images.unsplash.com/photo-1601050690597-df0568c635b6">
         <img src="https://images.unsplash.com/photo-1601050690597-df0568c635b6" class="menu-img" alt="Paneer Butter Masala">
         <div class="menu-body">
@@ -699,7 +754,7 @@ session_start();
 
 <!-- Item M2 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="32" data-name="Dal Tadka" data-price="160"
+    <div class="menu-card" data-id="32" data-name="Dal Tadka" data-price="160" data-veg="true"
          data-img="https://images.unsplash.com/photo-1603398938378-416bcb5a6c6e">
         <img src="https://images.unsplash.com/photo-1603398938378-416bcb5a6c6e" class="menu-img" alt="Dal Tadka">
         <div class="menu-body">
@@ -715,7 +770,7 @@ session_start();
 
 <!-- Item M3 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="33" data-name="Chole Bhature" data-price="180"
+    <div class="menu-card" data-id="33" data-name="Chole Bhature" data-price="180" data-veg="true"
          data-img="https://images.unsplash.com/photo-1617191518024-f79c6021144b">
         <img src="https://images.unsplash.com/photo-1617191518024-f79c6021144b" class="menu-img" alt="Chole Bhature">
         <div class="menu-body">
@@ -731,7 +786,7 @@ session_start();
 
 <!-- Item M4 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="34" data-name="Veg Biryani" data-price="200"
+    <div class="menu-card" data-id="34" data-name="Veg Biryani" data-price="200" data-veg="true"
          data-img="https://images.unsplash.com/photo-1623066649560-5c3fbb8e67e7">
         <img src="https://images.unsplash.com/photo-1623066649560-5c3fbb8e67e7" class="menu-img" alt="Veg Biryani">
         <div class="menu-body">
@@ -747,7 +802,7 @@ session_start();
 
 <!-- Item M5 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="35" data-name="Rajma Chawal" data-price="150"
+    <div class="menu-card" data-id="35" data-name="Rajma Chawal" data-price="150" data-veg="true"
          data-img="https://images.unsplash.com/photo-1601329910405-9af78aa9015d">
         <img src="https://images.unsplash.com/photo-1601329910405-9af78aa9015d" class="menu-img" alt="Rajma Chawal">
         <div class="menu-body">
@@ -763,7 +818,7 @@ session_start();
 
 <!-- Item M6 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="36" data-name="Shahi Paneer" data-price="230"
+    <div class="menu-card" data-id="36" data-name="Shahi Paneer" data-price="230" data-veg="true"
          data-img="https://images.unsplash.com/photo-1617196039835-6cbfb5a50d0d">
         <img src="https://images.unsplash.com/photo-1617196039835-6cbfb5a50d0d" class="menu-img" alt="Shahi Paneer">
         <div class="menu-body">
@@ -779,7 +834,7 @@ session_start();
 
 <!-- Item M7 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="37" data-name="Masala Dosa" data-price="120"
+    <div class="menu-card" data-id="37" data-name="Masala Dosa" data-price="120" data-veg="true"
          data-img="https://images.unsplash.com/photo-1604909052842-4e02aebfdc86">
         <img src="https://images.unsplash.com/photo-1604909052842-4e02aebfdc86" class="menu-img" alt="Masala Dosa">
         <div class="menu-body">
@@ -795,7 +850,7 @@ session_start();
 
 <!-- Item M8 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="38" data-name="Palak Paneer" data-price="210"
+    <div class="menu-card" data-id="38" data-name="Palak Paneer" data-price="210" data-veg="true"
          data-img="https://images.unsplash.com/photo-1634474208786-2df3fdf75f8e">
         <img src="https://images.unsplash.com/photo-1634474208786-2df3fdf75f8e" class="menu-img" alt="Palak Paneer">
         <div class="menu-body">
@@ -811,7 +866,7 @@ session_start();
 
 <!-- Item M9 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="39" data-name="Aloo Paratha" data-price="90"
+    <div class="menu-card" data-id="39" data-name="Aloo Paratha" data-price="90" data-veg="true"
          data-img="https://images.unsplash.com/photo-1604754742629-3e486fbcd2c7">
         <img src="https://images.unsplash.com/photo-1604754742629-3e486fbcd2c7" class="menu-img" alt="Aloo Paratha">
         <div class="menu-body">
@@ -827,7 +882,7 @@ session_start();
 
 <!-- Item M10 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="40" data-name="Veg Thali" data-price="250"
+    <div class="menu-card" data-id="40" data-name="Veg Thali" data-price="250" data-veg="true"
          data-img="https://images.unsplash.com/photo-1606166325552-4f2f331b1a7f">
         <img src="https://images.unsplash.com/photo-1606166325552-4f2f331b1a7f" class="menu-img" alt="Veg Thali">
         <div class="menu-body">
@@ -846,6 +901,7 @@ session_start();
              data-id="6"
              data-name="Margherita Pizza"
              data-price="399"
+             data-veg="false"
              data-img="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38">
             <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38" class="menu-img" alt="Margherita Pizza">
             <div class="menu-body">
@@ -874,6 +930,7 @@ session_start();
              data-id="7"
              data-name="New York Cheesecake"
              data-price="179"
+             data-veg="true"
              data-img="https://images.unsplash.com/photo-1563805042-7684c019e1cb">
             <div class="position-relative">
                 <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb" class="menu-img" alt="New York Cheesecake">
@@ -899,6 +956,7 @@ session_start();
              data-id="8"
              data-name="French Toast"
              data-price="99"
+             data-veg="true"
              data-img="https://images.unsplash.com/photo-1484723091739-30a097e8f929">
             <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929" class="menu-img" alt="French Toast">
             <div class="menu-body">
@@ -916,7 +974,7 @@ session_start();
     </div>
                 <!-- Item D1 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="41" data-name="Gulab Jamun" data-price="120"
+    <div class="menu-card" data-id="41" data-name="Gulab Jamun" data-price="120" data-veg="true"
          data-img="https://images.unsplash.com/photo-1634141533648-6d5c18a09b6b">
         <img src="https://images.unsplash.com/photo-1634141533648-6d5c18a09b6b" class="menu-img" alt="Gulab Jamun">
         <div class="menu-body">
@@ -932,7 +990,7 @@ session_start();
 
 <!-- Item D2 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="42" data-name="Rasgulla" data-price="110"
+    <div class="menu-card" data-id="42" data-name="Rasgulla" data-price="110" data-veg="true"
          data-img="https://images.unsplash.com/photo-1603190281371-57426ddf44e6">
         <img src="https://images.unsplash.com/photo-1603190281371-57426ddf44e6" class="menu-img" alt="Rasgulla">
         <div class="menu-body">
@@ -948,7 +1006,7 @@ session_start();
 
 <!-- Item D3 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="43" data-name="Kaju Katli" data-price="250"
+    <div class="menu-card" data-id="43" data-name="Kaju Katli" data-price="250" data-veg="true"
          data-img="https://images.unsplash.com/photo-1632127965553-3d39cda3979c">
         <img src="https://images.unsplash.com/photo-1632127965553-3d39cda3979c" class="menu-img" alt="Kaju Katli">
         <div class="menu-body">
@@ -964,7 +1022,7 @@ session_start();
 
 <!-- Item D4 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="44" data-name="Jalebi" data-price="100"
+    <div class="menu-card" data-id="44" data-name="Jalebi" data-price="100" data-veg="true"
          data-img="https://images.unsplash.com/photo-1626082924907-21b1e2edbb99">
         <img src="https://images.unsplash.com/photo-1626082924907-21b1e2edbb99" class="menu-img" alt="Jalebi">
         <div class="menu-body">
@@ -980,7 +1038,7 @@ session_start();
 
 <!-- Item D5 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="45" data-name="Rasmalai" data-price="180"
+    <div class="menu-card" data-id="45" data-name="Rasmalai" data-price="180" data-veg="true"
          data-img="https://images.unsplash.com/photo-1634141421022-73d2c8dbe528">
         <img src="https://images.unsplash.com/photo-1634141421022-73d2c8dbe528" class="menu-img" alt="Rasmalai">
         <div class="menu-body">
@@ -996,7 +1054,7 @@ session_start();
 
 <!-- Item D6 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="46" data-name="Besan Ladoo" data-price="150"
+    <div class="menu-card" data-id="46" data-name="Besan Ladoo" data-price="150"  data-veg="true"
          data-img="https://images.unsplash.com/photo-1626082990044-51e8ef5d1eb6">
         <img src="https://images.unsplash.com/photo-1626082990044-51e8ef5d1eb6" class="menu-img" alt="Besan Ladoo">
         <div class="menu-body">
@@ -1012,7 +1070,7 @@ session_start();
 
 <!-- Item D7 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="47" data-name="Kulfi" data-price="120"
+    <div class="menu-card" data-id="47" data-name="Kulfi" data-price="120" data-veg="true"
          data-img="https://images.unsplash.com/photo-1626082923210-278ade41b1a7">
         <img src="https://images.unsplash.com/photo-1626082923210-278ade41b1a7" class="menu-img" alt="Kulfi">
         <div class="menu-body">
@@ -1028,7 +1086,7 @@ session_start();
 
 <!-- Item D8 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="48" data-name="Malpua" data-price="140"
+    <div class="menu-card" data-id="48" data-name="Malpua" data-price="140" data-veg="true"
          data-img="https://images.unsplash.com/photo-1635931744031-52a8d92c16f1">
         <img src="https://images.unsplash.com/photo-1635931744031-52a8d92c16f1" class="menu-img" alt="Malpua">
         <div class="menu-body">
@@ -1044,7 +1102,7 @@ session_start();
 
 <!-- Item D9 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="49" data-name="Sandesh" data-price="160"
+    <div class="menu-card" data-id="49" data-name="Sandesh" data-price="160" data-veg="true"
          data-img="https://images.unsplash.com/photo-1634141422080-4cfb5ef76e5f">
         <img src="https://images.unsplash.com/photo-1634141422080-4cfb5ef76e5f" class="menu-img" alt="Sandesh">
         <div class="menu-body">
@@ -1060,7 +1118,7 @@ session_start();
 
 <!-- Item D10 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="50" data-name="Gajar Ka Halwa" data-price="170"
+    <div class="menu-card" data-id="50" data-name="Gajar Ka Halwa" data-price="170"     data-veg="true"
          data-img="https://images.unsplash.com/photo-1617191517461-68cfa2e3d1b2">
         <img src="https://images.unsplash.com/photo-1617191517461-68cfa2e3d1b2" class="menu-img" alt="Gajar Ka Halwa">
         <div class="menu-body">
@@ -1079,6 +1137,7 @@ session_start();
              data-id="9"
              data-name="Artisan Ice Cream"
              data-price="149"
+             data-veg="true"
              data-img="https://images.unsplash.com/photo-1551024506-0bccd828d307">
             <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307" class="menu-img" alt="Artisan Ice Cream">
             <div class="menu-body">
@@ -1108,6 +1167,7 @@ session_start();
              data-id="10"
              data-name="Fresh Lemonade"
              data-price="99"
+             data-veg="true"
              data-img="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd">
             <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd" class="menu-img" alt="Fresh Lemonade">
             <div class="menu-body">
@@ -1130,6 +1190,7 @@ session_start();
              data-id="11"
              data-name="Iced Coffee"
              data-price="129"
+             data-veg="true"
              data-img="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5">
             <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5" class="menu-img" alt="Iced Coffee">
             <div class="menu-body">
@@ -1147,7 +1208,7 @@ session_start();
     </div>
                 <!-- Item DR1 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="51" data-name="Masala Chai" data-price="50"
+    <div class="menu-card" data-id="51" data-name="Masala Chai" data-price="50" data-veg="true"
          data-img="https://images.unsplash.com/photo-1590080871873-51e6c1f1d9e8">
         <img src="https://images.unsplash.com/photo-1590080871873-51e6c1f1d9e8" class="menu-img" alt="Masala Chai">
         <div class="menu-body">
@@ -1163,7 +1224,7 @@ session_start();
 
 <!-- Item DR2 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="52" data-name="Lassi" data-price="60"
+    <div class="menu-card" data-id="52" data-name="Lassi" data-price="60" data-veg="true"
          data-img="https://images.unsplash.com/photo-1589713501943-bc9e3a1f76f3">
         <img src="https://images.unsplash.com/photo-1589713501943-bc9e3a1f76f3" class="menu-img" alt="Lassi">
         <div class="menu-body">
@@ -1179,7 +1240,7 @@ session_start();
 
 <!-- Item DR3 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="53" data-name="Chaas" data-price="40"
+    <div class="menu-card" data-id="53" data-name="Chaas" data-price="40" data-veg="true"
          data-img="https://images.unsplash.com/photo-1627886106605-5ee8a2aaaf4c">
         <img src="https://images.unsplash.com/photo-1627886106605-5ee8a2aaaf4c" class="menu-img" alt="Chaas">
         <div class="menu-body">
@@ -1195,7 +1256,7 @@ session_start();
 
 <!-- Item DR4 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="54" data-name="Thandai" data-price="70"
+    <div class="menu-card" data-id="54" data-name="Thandai" data-price="70"  data-veg="true"
          data-img="https://images.unsplash.com/photo-1617190981028-f7b6f8326e32">
         <img src="https://images.unsplash.com/photo-1617190981028-f7b6f8326e32" class="menu-img" alt="Thandai">
         <div class="menu-body">
@@ -1211,7 +1272,7 @@ session_start();
 
 <!-- Item DR5 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="55" data-name="Jal Jeera" data-price="50"
+    <div class="menu-card" data-id="55" data-name="Jal Jeera" data-price="50" data-veg="true"
          data-img="https://images.unsplash.com/photo-1617190985032-0d7d1e5c4c4a">
         <img src="https://images.unsplash.com/photo-1617190985032-0d7d1e5c4c4a" class="menu-img" alt="Jal Jeera">
         <div class="menu-body">
@@ -1227,7 +1288,7 @@ session_start();
 
 <!-- Item DR6 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="56" data-name="Badam Milk" data-price="80"
+    <div class="menu-card" data-id="56" data-name="Badam Milk" data-price="80" data-veg="true"
          data-img="https://images.unsplash.com/photo-1606357015337-d10c0468f38b">
         <img src="https://images.unsplash.com/photo-1606357015337-d10c0468f38b" class="menu-img" alt="Badam Milk">
         <div class="menu-body">
@@ -1243,7 +1304,7 @@ session_start();
 
 <!-- Item DR7 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="57" data-name="Filter Coffee" data-price="60"
+    <div class="menu-card" data-id="57" data-name="Filter Coffee" data-price="60" data-veg="true"
          data-img="https://images.unsplash.com/photo-1606813903595-f4fa46948bb3">
         <img src="https://images.unsplash.com/photo-1606813903595-f4fa46948bb3" class="menu-img" alt="Filter Coffee">
         <div class="menu-body">
@@ -1259,7 +1320,7 @@ session_start();
 
 <!-- Item DR8 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="58" data-name="Nimbu Pani" data-price="40"
+    <div class="menu-card" data-id="58" data-name="Nimbu Pani" data-price="40" data-veg="true"
          data-img="https://images.unsplash.com/photo-1617190981042-6b24d5a06a99">
         <img src="https://images.unsplash.com/photo-1617190981042-6b24d5a06a99" class="menu-img" alt="Nimbu Pani">
         <div class="menu-body">
@@ -1275,7 +1336,7 @@ session_start();
 
 <!-- Item DR9 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="59" data-name="Rose Milk" data-price="50"
+    <div class="menu-card" data-id="59" data-name="Rose Milk" data-price="50" data-veg="true"
          data-img="https://images.unsplash.com/photo-1617190981055-5a3a1d4c6d58">
         <img src="https://images.unsplash.com/photo-1617190981055-5a3a1d4c6d58" class="menu-img" alt="Rose Milk">
         <div class="menu-body">
@@ -1291,7 +1352,7 @@ session_start();
 
 <!-- Item DR10 -->
 <div class="col-md-4">
-    <div class="menu-card" data-id="60" data-name="Aam Panna" data-price="60"
+    <div class="menu-card" data-id="60" data-name="Aam Panna" data-price="60" data-veg="true"
          data-img="https://images.unsplash.com/photo-1617190981063-3e2b1fbd5f55">
         <img src="https://images.unsplash.com/photo-1617190981063-3e2b1fbd5f55" class="menu-img" alt="Aam Panna">
         <div class="menu-body">
@@ -1310,6 +1371,7 @@ session_start();
              data-id="12"
              data-name="Berry Smoothie"
              data-price="149"
+             data-veg="true"
              data-img="https://images.unsplash.com/photo-1551024506-0bccd828d307">
             <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307" class="menu-img" alt="Berry Smoothie">
             <div class="menu-body">
@@ -1462,72 +1524,7 @@ function renderCart() {
 
     cartTotal.textContent = 'Total: ₹' + total.toFixed(2);
 }
-document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const sortSelect = document.querySelector('.sort-select');
-    const menuContainer = document.querySelector('.menu-container');
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            const filter = button.dataset.filter;
-
-            const cards = document.querySelectorAll('.menu-card');
-            cards.forEach(card => {
-                if (filter === 'all') {
-                    card.style.display = '';
-                } else if (filter === 'veg') {
-                    card.style.display = card.querySelector('.veg-icon') ? '' : 'none';
-                } else if (filter === 'vegan') {
-                    // Implement vegan filter logic if you have vegan icon or data attribute
-                    card.style.display = card.dataset.vegan === 'true' ? '' : 'none';
-                } else if (filter === 'bestseller') {
-                    card.style.display = card.querySelector('.menu-badge') && card.querySelector('.menu-badge').textContent.toLowerCase().includes('bestseller') ? '' : 'none';
-                } else if (filter === 'chef-special') {
-                    card.style.display = card.querySelector('.menu-badge') && card.querySelector('.menu-badge').textContent.toLowerCase().includes("chef's special") ? '' : 'none';
-                } else {
-                    card.style.display = '';
-                }
-            });
-        });
-    });
-
-    sortSelect.addEventListener('change', () => {
-        const sortBy = sortSelect.value;
-        const cards = Array.from(document.querySelectorAll('.menu-card')).filter(card => card.style.display !== 'none');
-
-        cards.sort((a, b) => {
-            if (sortBy === 'price-asc') {
-                return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
-            } else if (sortBy === 'price-desc') {
-                return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
-            } else if (sortBy === 'rating') {
-                // Ratings are in <span class="menu-rating">★ 4.8</span>
-                const ratingA = parseFloat(a.querySelector('.menu-rating').textContent.replace('★', '').trim());
-                const ratingB = parseFloat(b.querySelector('.menu-rating').textContent.replace('★', '').trim());
-                return ratingB - ratingA; // Descending
-            } else if (sortBy === 'name') {
-                return a.dataset.name.localeCompare(b.dataset.name);
-            }
-            return 0; // Default no sorting
-        });
-
-        // Append sorted cards to container
-        const rowContainers = menuContainer.querySelectorAll('.row');
-        // Clear existing cards inside rows
-        rowContainers.forEach(row => row.innerHTML = '');
-
-        // Distribute cards evenly into rows (e.g., 3 per row)
-        for (let i = 0; i < cards.length; i += 3) {
-            const row = document.createElement('div');
-            row.className = 'row';
-            cards.slice(i, i + 3).forEach(card => row.appendChild(card));
-            menuContainer.appendChild(row);
-        }
-    });
-});
 
 function changeQty(id, delta) {
     const item = cart.find(it => it.id === id);
@@ -1607,33 +1604,22 @@ function filterItems(filter) {
         
         if (filter === 'all') {
             card.classList.remove('hidden');
-        } else if (filter === 'veg') {
-            if (isVeg) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
-            }
-        } else if (filter === 'non-veg') {
-            if (!isVeg) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
-            }
-        } else if (filter === 'bestseller') {
-            if (isBestseller) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
-            }
-        } else if (filter === 'chef-special') {
-            if (isChefSpecial) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
-            }
+        } 
+        else if (filter === 'veg') {
+            card.classList.toggle('hidden', !isVeg);
+        } 
+        else if (filter === 'non-veg') {
+            card.classList.toggle('hidden', isVeg);
+        } 
+        else if (filter === 'bestseller') {
+            card.classList.toggle('hidden', !isBestseller);
+        } 
+        else if (filter === 'chef-special') {
+            card.classList.toggle('hidden', !isChefSpecial);
         }
     });
 }
+
 function sortItems(sortBy) {
     const categories = ['appetizers', 'main-courses', 'desserts', 'drinks'];
     
