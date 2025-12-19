@@ -13,12 +13,29 @@ session_start();
     <style>
         /* Your existing CSS styles here */
         header {
-            height: 200px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            position: relative; /* Changed from sticky */
-        }
+
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+/* Sticky header for desktop and laptop only */
+@media (min-width: 768px) {
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .menu-container {
+        margin-top: 0;
+        padding-top: 200px;
+    }
+}
+
+
 
         body::before {
             content: "";
@@ -41,7 +58,7 @@ session_start();
         }
         
         body {
-            background-image: url("images/bgImg.jpeg");
+            background-image: url("../bgImg.jpeg");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -70,6 +87,7 @@ session_start();
         .menu-container {
             padding: 2rem 0;
             color: white;
+            margin-top: 220px;
         }
         
         .category-title {
@@ -82,7 +100,7 @@ session_start();
         }
         
         .menu-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(206, 27, 27, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
@@ -181,9 +199,126 @@ session_start();
                 height: 150px;
             }
         }
+
+        /* Mobile responsiveness for header and menu items */
+        @media (max-width: 576px) {
+            header {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 10px;
+            }
+
+            header .d-flex {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            #logo {
+                height: 100px;
+                width: 100px;
+                margin-left: 0;
+                align-self: center;
+            }
+
+            .header-search-form {
+                width: 100%;
+            }
+
+            .header-search-form input {
+                width: 100%;
+                font-size: 14px;
+            }
+
+            .header-search-form button {
+                font-size: 14px;
+            }
+
+            .input-group {
+                width: 100%;
+                margin: 0;
+            }
+
+            .input-group select {
+                font-size: 14px;
+            }
+
+            header .d-flex:last-child {
+                flex-direction: row;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            header .btn {
+                font-size: 14px;
+                padding: 5px 10px;
+            }
+
+            .menu-container {
+                padding: 1rem 0;
+            }
+
+            .category-title {
+                font-size: 1.8rem;
+                margin: 1.5rem 0 0.5rem;
+                padding-bottom: 0.3rem;
+            }
+
+            .menu-card {
+                margin-bottom: 1rem;
+            }
+
+            .menu-img {
+                height: 180px;
+            }
+
+            .menu-body {
+                padding: 1rem;
+            }
+
+            .menu-title {
+                font-size: 1.3rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .menu-price {
+                font-size: 1.2rem;
+            }
+
+            .menu-description {
+                font-size: 0.9rem;
+                margin: 0.5rem 0;
+            }
+
+            .add-to-cart {
+                padding: 0.4rem 1rem;
+                font-size: 0.9rem;
+                min-height: 40px;
+            }
+
+            .veg-icon, .non-veg-icon {
+                font-size: 1rem;
+            }
+
+            .menu-rating {
+                font-size: 0.9rem;
+            }
+
+            .menu-badge {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.6rem;
+            }
+
+            .cart-toast {
+                bottom: 10px;
+                right: 10px;
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
          /* Menu Category Styles */
         .menu-container {
-            padding: 40px 0;
+            margin-top: 75px;
+            padding: 0px 0;
             color: white;
         }
         
@@ -361,20 +496,23 @@ session_start();
     <header id="header" class="d-flex align-items-center justify-content-between px-3 py-2 bg-black">
         <div class="d-flex align-items-center gap-3">
             <button class="btn bg-transparent border-0 p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
-                <i class="fas fa-bars text-white" style="font-size: 1.8rem;"></i>
-            </button>
-            <img id="logo" src="images/logo.jpg" alt="Logo" class="me-2" />
-             <form class="d-flex align-items-center header-search-form" action="search.php" method="GET">
-                <input class="form-control form-control-lg rounded-pill me-2" 
-                       type="search" 
-                       name="q"  
-                       placeholder="🔍 Search for food or cuisines..." 
-                       aria-label="Search"
-                       required>
-                <button class="btn btn-danger rounded-pill px-3" type="submit">
-                    Search
-                </button>
-            </form>   
+  <i class="fas fa-bars text-white" style="font-size: 1.8rem;"></i>
+</button>
+            <img id="logo" src="../assets/images/logo.jpg" alt="Logo" class="me-2" />
+             <!-- Fixed Search Bar -->
+<form class="d-flex align-items-center header-search-form" action="search.php" method="GET">
+    <input class="form-control form-control-lg rounded-pill me-2" 
+           type="search" 
+           name="q"  
+           placeholder="🔍 Search for food or cuisines..." 
+           aria-label="Search"
+           required>
+    <button class="btn btn-danger rounded-pill px-3" type="submit">
+        Search
+    </button>
+</form>   
+            <!-- Location Selector -->
+
             <div class="input-group ms-2" style="width: 200px; height: 40px;">
                 <span class="input-group-text bg-danger text-white px-2">
                     <i class="fas fa-map-marker-alt"></i>
@@ -404,6 +542,29 @@ session_start();
 
     <div class="menu-container container">
         <h1 class="text-center mb-5" style="color: #ff6b6b; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Our Delicious Menu</h1>
+
+
+        <!-- Filter & Sort Controls -->
+        <div class="menu-controls">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="veg">Veg</button>
+            <button class="filter-btn" data-filter="non-veg">Non-Veg</button>
+            <button class="filter-btn" data-filter="bestseller">Bestseller</button>
+            <button class="filter-btn" data-filter="chef-special">Chef's Special</button>
+            <select class="sort-select" id="sortSelect">
+                <option value="">Sort by</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating">Rating</option>
+                <option value="name">Name</option>
+            </select>
+        </div>
+
+        <!-- Menu Container -->
+
+
+       
+
         
         <h2 class="category-title">🍟 Appetizers</h2>
         <div class="row appetizers-category"> 

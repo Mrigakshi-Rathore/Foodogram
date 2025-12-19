@@ -14,7 +14,7 @@ session_start(); // Keep this to maintain session functionality
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         body {
-            background-image: url("images/bgImg.jpeg");
+            background-image: url("assets/images/bgImg.jpeg");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -366,22 +366,22 @@ session_start(); // Keep this to maintain session functionality
                     <a class="nav-link text-white" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="about.php">About Us</a>
+                    <a class="nav-link text-white" href="pages/about.php">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="profile.php">Profile</a>
+                    <a class="nav-link text-white" href="pages/profile.php">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="rating.php">Rate Us</a>
+                    <a class="nav-link text-white" href="pages/rating.php">Rate Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="settings.php">Settings</a>
+                    <a class="nav-link text-white" href="pages/settings.php">Settings</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="help.php">Help/Contact</a>
+                    <a class="nav-link text-white" href="pages/help.php">Help/Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="terms.php">Terms and Conditions</a>
+                    <a class="nav-link text-white" href="pages/terms.php">Terms and Conditions</a>
                 </li>
             </ul>
         </div>
@@ -398,9 +398,9 @@ session_start(); // Keep this to maintain session functionality
                     <button class="btn btn-sm btn-white p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
                         <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
                     </button>
-                    <img id="logo" src="images/logo.jpg" alt="Logo" />
+                    <img id="logo" src="assets/images/logo.jpg" alt="Logo" />
                 </div>
-                <form class="d-flex align-items-center header-search-form flex-grow-1" action="search.php" method="GET">
+                <form class="d-flex align-items-center header-search-form flex-grow-1" action="pages/search.php" method="GET">
                     <input class="form-control form-control-lg rounded-pill me-2"
                            type="search"
                            name="q"
@@ -426,13 +426,13 @@ session_start(); // Keep this to maintain session functionality
             </div>
             <!-- Right: Buttons -->
             <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end gap-2 flex-wrap px-3 mt-2 mt-md-0">
-                <a href="menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
-                <a href="cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
+                <a href="pages/menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
+                <a href="pages/cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
                 <?php if (isset($_SESSION['logged_in'])): ?>
-                    <a href="logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
+                    <a href="pages/logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
                 <?php else: ?>
-                    <a href="login.php" class="btn btn-danger px-3 py-1">Login</a>
-                    <a href="signup.php" class="btn btn-danger px-3 py-1">Sign Up</a>
+                    <a href="pages/login.php" class="btn btn-danger px-3 py-1">Login</a>
+                    <a href="pages/signup.php" class="btn btn-danger px-3 py-1">Sign Up</a>
                 <?php endif; ?>
             </div>
         </div>
@@ -594,22 +594,22 @@ session_start(); // Keep this to maintain session functionality
             <h6 class="fw-bold"  style="color: yellow;">Quick Links</h6>
             <ul class="list-unstyled">
               <li>
-                <a href="about.php" class="text-white text-decoration-none"
+                <a href="pages/about.php" class="text-white text-decoration-none"
                   >About Us</a
                 >
               </li>
               <li>
-                <a href="menu.php" class="text-white text-decoration-none"
+                <a href="pages/menu.php" class="text-white text-decoration-none"
                   >Menu</a
                 >
               </li>
               <li>
-                <a href="profile.php" class="text-white text-decoration-none"
+                <a href="pages/profile.php" class="text-white text-decoration-none"
                   >Profile</a
                 >
               </li>
               <li>
-                <a href="contact.php" class="text-white text-decoration-none"
+                <a href="pages/contact.php" class="text-white text-decoration-none"
                   >Contact</a
                 >
               </li>

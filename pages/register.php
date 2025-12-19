@@ -1,5 +1,5 @@
 <?php
-require 'db_connect.php';
+require '../includes/db_connect.php';
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             $_SESSION['user_id'] = $pdo->lastInsertId();
             $_SESSION['email'] = $email;
-            header('Location: index.php');
+            header('Location: ../index.php');
             exit();
         } catch (PDOException $e) {
             $error = "Email already exists";
