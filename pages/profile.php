@@ -22,7 +22,7 @@ $user_data = [
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/bgImg.jpeg');
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../assets/images/bgImg.jpeg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -497,10 +497,10 @@ $user_data = [
       <button class="btn bg-transparent border-0 p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
         <i class="fas fa-bars text-white" style="font-size: 1.8rem;"></i>
       </button>
-      <img id="logo" src="images/logo.jpg" alt="Logo" class="me-2" />
-      
+      <img id="logo" src="../assets/images/logo.jpg" alt="Logo" class="me-2" />
+
       <!-- Search Bar -->
-      <form class="d-flex align-items-center header-search-form" action="search.php" method="GET">
+      <form class="d-flex align-items-center header-search-form" action="../search.php" method="GET">
         <input class="form-control form-control-lg rounded-pill me-2" 
                type="search" 
                name="q"  
@@ -527,14 +527,14 @@ $user_data = [
 
     <!-- Right: Buttons -->
     <div class="d-flex align-items-center gap-2">
-      <a href="menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
-      <a href="cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
-      
+      <a href="../menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
+      <a href="../cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
+
       <?php if (isset($_SESSION['logged_in'])): ?>
-        <a href="logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
+        <a href="../logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
       <?php else: ?>
-        <a href="login.php" class="btn btn-danger px-3 py-1">Login</a>
-        <a href="signup.php" class="btn btn-danger px-3 py-1">Sign Up</a>
+        <a href="../login.php" class="btn btn-danger px-3 py-1">Login</a>
+        <a href="../signup.php" class="btn btn-danger px-3 py-1">Sign Up</a>
       <?php endif; ?>
     </div>
   </header>
@@ -547,13 +547,13 @@ $user_data = [
     </div>
     <div class="offcanvas-body">
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="about.php">About Us</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="profile.php">Profile</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="rating.php">Rate Us</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="settings.php">Settings</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="help.php">Help/Contact</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="terms.php">Terms & Conditions</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="../index.php">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="../about.php">About Us</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="../profile.php">Profile</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="../rating.php">Rate Us</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="../settings.php">Settings</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="../help.php">Help/Contact</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="../terms.php">Terms & Conditions</a></li>
       </ul>
     </div>
   </div>
@@ -596,7 +596,7 @@ $user_data = [
             <div class="stat-number"><?php echo $user_data['orders_count']; ?></div>
             <h4 class="fw-bold">Total Orders</h4>
             <p class="text-muted mb-3">Delicious meals enjoyed</p>
-            <a href="orders.php" class="btn-profile">View Orders</a>
+            <a href="../orders.php" class="btn-profile">View Orders</a>
           </div>
         </div>
         
@@ -608,7 +608,7 @@ $user_data = [
             <div class="stat-number"><?php echo $user_data['reviews_count']; ?></div>
             <h4 class="fw-bold">Reviews</h4>
             <p class="text-muted mb-3">Restaurants rated</p>
-            <a href="reviews.php" class="btn-profile">View Reviews</a>
+            <a href="../reviews.php" class="btn-profile">View Reviews</a>
           </div>
         </div>
         
@@ -620,7 +620,7 @@ $user_data = [
             <div class="stat-number"><?php echo $user_data['favorites_count']; ?></div>
             <h4 class="fw-bold">Favorites</h4>
             <p class="text-muted mb-3">Loved dishes saved</p>
-            <a href="favorites.php" class="btn-profile">View Favorites</a>
+            <a href="../favorites.php" class="btn-profile">View Favorites</a>
           </div>
         </div>
       </div>
@@ -672,19 +672,19 @@ $user_data = [
         <div class="col-lg-4">
           <div class="quick-actions">
             <h4 class="fw-bold mb-4">⚡ Quick Actions</h4>
-            <a href="menu.php" class="action-btn">
+            <a href="../menu.php" class="action-btn">
               <i class="fas fa-utensils me-2"></i>Order Food
             </a>
-            <a href="track_order.php" class="action-btn">
+            <a href="../track_order.php" class="action-btn">
               <i class="fas fa-truck me-2"></i>Track Order
             </a>
-            <a href="edit_profile.php" class="action-btn">
+            <a href="../edit_profile.php" class="action-btn">
               <i class="fas fa-edit me-2"></i>Edit Profile
             </a>
-            <a href="settings.php" class="action-btn">
+            <a href="../settings.php" class="action-btn">
               <i class="fas fa-cog me-2"></i>Settings
             </a>
-            <a href="index.php" class="action-btn">
+            <a href="../index.php" class="action-btn">
               <i class="fas fa-home me-2"></i>Back to Home
             </a>
           </div>
@@ -703,12 +703,12 @@ $user_data = [
         </div>
         <div class="col-md-4 mb-3">
           <h6 class="fw-bold" style="color: yellow;">Quick Links</h6>
-          <ul class="list-unstyled">
-            <li><a href="about.php" class="text-white text-decoration-none">About Us</a></li>
-            <li><a href="menu.php" class="text-white text-decoration-none">Menu</a></li>
-            <li><a href="profile.php" class="text-white text-decoration-none">Profile</a></li>
-            <li><a href="contact.php" class="text-white text-decoration-none">Contact</a></li>
-          </ul>
+        <ul class="list-unstyled">
+          <li><a href="../about.php" class="text-white text-decoration-none">About Us</a></li>
+          <li><a href="../menu.php" class="text-white text-decoration-none">Menu</a></li>
+          <li><a href="../profile.php" class="text-white text-decoration-none">Profile</a></li>
+          <li><a href="../contact.php" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
         </div>
         <div class="col-md-4 mb-3">
           <h6 style="color: yellow;" class="fw-bold">Follow Us</h6>

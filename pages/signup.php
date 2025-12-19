@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           $_SESSION['name'] = $name;
             $_SESSION['logged_in'] = true;
             $_SESSION['welcome_message'] = "Welcome to Foodogram, $name!";
-            header("Location: index.php");
+            header("Location: ../index.php");
             exit();
         } else {
             $errors['database'] = 'Registration failed, please try again';
@@ -196,7 +196,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       <button type="submit" class="btn btn-custom w-100 mb-3">Sign Up</button>
 
-      <p class="mt-3 mb-0">Already a member? <a href="login.php">Log in</a></p>
+      <p class="mt-3 mb-0">Already a member? <a href="../login.php">Log in</a></p>
     </form>
   </div>
 

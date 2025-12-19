@@ -7,25 +7,25 @@
     <div class="offcanvas-body">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link text-white" href="index.php">Home</a>
+                <a class="nav-link text-white" href="../index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="about.php">About Us</a>
+                <a class="nav-link text-white" href="../about.php">About Us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="profile.php">Profile</a>
+                <a class="nav-link text-white" href="../profile.php">Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="rating.php">Rate Us</a>
+                <a class="nav-link text-white" href="../rating.php">Rate Us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="settings.php">Settings</a>
+                <a class="nav-link text-white" href="../settings.php">Settings</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="help.php">Help/Contact</a>
+                <a class="nav-link text-white" href="../help.php">Help/Contact</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="terms.php">Terms and Conditions</a>
+                <a class="nav-link text-white" href="../terms.php">Terms and Conditions</a>
             </li>
         </ul>
     </div>
@@ -290,25 +290,25 @@ body.dark-mode {
         <div class="offcanvas-body">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="index.php">Home</a>
+                    <a class="nav-link text-white" href="../index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="about.php">About Us</a>
+                    <a class="nav-link text-white" href="../about.php">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="profile.php">Profile</a>
+                    <a class="nav-link text-white" href="../profile.php">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="rating.php">Rate Us</a>
+                    <a class="nav-link text-white" href="../rating.php">Rate Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="settings.php">Settings</a>
+                    <a class="nav-link text-white" href="../settings.php">Settings</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="help.php">Help/contact</a>
+                    <a class="nav-link text-white" href="../help.php">Help/contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="terms.php">Terms and Conditions</a>
+                    <a class="nav-link text-white" href="../terms.php">Terms and Conditions</a>
                 </li>
             </ul>
         </div>
@@ -366,10 +366,10 @@ body.dark-mode {
         <button class="btn btn-sm btn-white p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
             <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
         </button>
-        <img id="logo" src="images/logo.jpg" alt="Logo" class="me-2" />
+        <img id="logo" src="../assets/images/logo.jpg" alt="Logo" class="me-2" />
 
         <!-- Fixed Search Bar -->
-        <form class="d-flex align-items-center header-search-form" action="search.php" method="GET">
+        <form class="d-flex align-items-center header-search-form" action="../search.php" method="GET">
             <input class="form-control form-control-lg rounded-pill me-2"
                    type="search"
                    name="q"
@@ -399,12 +399,12 @@ body.dark-mode {
 
         <!-- Right: Buttons -->
         <div class="d-flex align-items-center gap-2">
-            <a href="menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
-            <a href="cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
+            <a href="../menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
+            <a href="../cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
             <?php if (isset($_SESSION['logged_in'])): ?>
-                <a href="logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
+                <a href="../logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
             <?php else: ?>
-                <a href="login.php" class="btn btn-danger px-3 py-1">Login</a>
+                <a href="../login.php" class="btn btn-danger px-3 py-1">Login</a>
             <?php endif; ?>
             <button id="darkModeToggle" class="btn btn-outline-light ms-1 px-3 py-1">🌙 Dark</button>
         </div>
@@ -461,14 +461,14 @@ body.dark-mode {
 
     <!-- Right: Buttons -->
     <div class="d-flex align-items-center gap-2">
-        <a href="menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
-        <a href="cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
+        <a href="../menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
+        <a href="../cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
 
         <?php if (isset($_SESSION['logged_in'])): ?>
-            <a href="logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
+            <a href="../logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
         <?php else: ?>
-            <a href="login.php" class="btn btn-danger px-3 py-1">Login</a>
-            <a href="signup.php" class="btn btn-danger px-3 py-1">Sign Up</a>
+            <a href="../login.php" class="btn btn-danger px-3 py-1">Login</a>
+            <a href="../signup.php" class="btn btn-danger px-3 py-1">Sign Up</a>
         <?php endif; ?>
     </div>
 </header>
