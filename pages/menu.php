@@ -56,7 +56,7 @@ session_start();
         }
         
         body {
-            background-image: url("images/bgImg.jpeg");
+            background-image: url("../bgImg.jpeg");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -98,7 +98,7 @@ session_start();
         }
         
         .menu-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(206, 27, 27, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
@@ -499,7 +499,7 @@ session_start();
             <button class="btn bg-transparent border-0 p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
   <i class="fas fa-bars text-white" style="font-size: 1.8rem;"></i>
 </button>
-            <img id="logo" src="images/logo.jpg" alt="Logo" class="me-2" />
+            <img id="logo" src="../assets/images/logo.jpg" alt="Logo" class="me-2" />
              <!-- Fixed Search Bar -->
 <form class="d-flex align-items-center header-search-form" action="search.php" method="GET">
     <input class="form-control form-control-lg rounded-pill me-2" 

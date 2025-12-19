@@ -12,7 +12,7 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/bgImg.jpeg');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../assets/images/bgImg.jpeg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -422,10 +422,10 @@ session_start();
             <button class="btn bg-transparent border-0 p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#darkMenu">
                 <i class="fas fa-bars text-white" style="font-size: 1.8rem;"></i>
             </button>
-            <img id="logo" src="images/logo.jpg" alt="Logo" class="me-2" />
-            
+            <img id="logo" src="../assets/images/logo.jpg" alt="Logo" class="me-2" />
+
             <!-- Search Bar -->
-            <form class="d-flex align-items-center header-search-form" action="search.php" method="GET">
+            <form class="d-flex align-items-center header-search-form" action="../search.php" method="GET">
                 <input class="form-control form-control-lg rounded-pill me-2" 
                        type="search" 
                        name="q"  
@@ -452,13 +452,13 @@ session_start();
 
         <!-- Right: Buttons -->
         <div class="d-flex align-items-center gap-2">
-            <a href="menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
-            <a href="cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
-            
+            <a href="../menu.php" class="btn btn-danger px-3 py-1">🍔 Menu</a>
+            <a href="../cart.php" class="btn btn-danger px-3 py-1">🛒 Cart</a>
+
             <?php if (isset($_SESSION['logged_in'])): ?>
-                <a href="logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
+                <a href="../logout.php" class="btn btn-danger px-3 py-1">👤 Logout</a>
             <?php else: ?>
-                <a href="login.php" class="btn btn-danger px-3 py-1">Login</a>
+                <a href="../login.php" class="btn btn-danger px-3 py-1">Login</a>
             <?php endif; ?>
         </div>
     </header>
@@ -471,13 +471,13 @@ session_start();
         </div>
         <div class="offcanvas-body">
             <ul class="nav flex-column">
-                <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="about.php">About Us</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="profile.php">Profile</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="rating.php">Rate Us</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="settings.php">Settings</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="help.php">Help/Contact</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="terms.php">Terms & Conditions</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="../index.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="../about.php">About Us</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="../profile.php">Profile</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="../rating.php">Rate Us</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="../settings.php">Settings</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="../help.php">Help/Contact</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="../terms.php">Terms & Conditions</a></li>
             </ul>
         </div>
     </div>
@@ -500,10 +500,10 @@ session_start();
                         </div>
                         <h3>FAQs</h3>
                         <p>Browse through our frequently asked questions about orders, payments, delivery, and more. Quick answers at your fingertips.</p>
-                        <a href="faq.php" class="btn btn-help">View FAQs</a>
+                        <a href="../faq.php" class="btn btn-help">View FAQs</a>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4 col-md-6">
                     <div class="help-card">
                         <div class="help-icon">
@@ -511,7 +511,7 @@ session_start();
                         </div>
                         <h3>Contact Support</h3>
                         <p>Can't find what you're looking for? Reach out to our support team via email or phone for personalized assistance.</p>
-                        <a href="contact.php" class="btn btn-help">Contact Now</a>
+                        <a href="../contact.php" class="btn btn-help">Contact Now</a>
                     </div>
                 </div>
                 
@@ -566,10 +566,10 @@ session_start();
                 <div class="col-md-4 mb-3">
                     <h6 class="fw-bold" style="color: yellow;">Quick Links</h6>
                     <ul class="list-unstyled">
-                        <li><a href="about.php" class="text-white text-decoration-none">About Us</a></li>
-                        <li><a href="menu.php" class="text-white text-decoration-none">Menu</a></li>
-                        <li><a href="profile.php" class="text-white text-decoration-none">Profile</a></li>
-                        <li><a href="contact.php" class="text-white text-decoration-none">Contact</a></li>
+                        <li><a href="../about.php" class="text-white text-decoration-none">About Us</a></li>
+                        <li><a href="../menu.php" class="text-white text-decoration-none">Menu</a></li>
+                        <li><a href="../profile.php" class="text-white text-decoration-none">Profile</a></li>
+                        <li><a href="../contact.php" class="text-white text-decoration-none">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-3">
