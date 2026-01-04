@@ -1,18 +1,9 @@
 <?php
 session_start();
 
-// DB connection (InfinityFree)
-$host = "sql100.infinityfree.com";       // MySQL Hostname from cPanel
-$dbname = "if0_39795005_foodogram";      // Your database name
-$username = "if0_39795005";              // MySQL Username
-$password = "foodogram";      // The password you use to log into InfinityFree
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
-}
+// Use local shared DB connection
+require_once 'db_connect.php';
+$pdo = $conn;
 
 $error = '';
 
@@ -21,15 +12,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
 
     if (!empty($email) && !empty($password)) {
-        $stmt = $pdo->prepare("SELECT id, name, password FROM users WHERE email = ?");
+        $stmt = $pdo->prepare("SELECT id, username, password FROM users WHERE email = ?");
         $stmt->execute([$email]);
         $user = $stmt->fetch();
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['name'] = $user['name'];
+            $_SESSION['name'] = $user['username'];
             $_SESSION['logged_in'] = true;
-            $_SESSION['welcome_message'] = "Welcome back, " . $user['name'] . "! 🎉";
+            $_SESSION['welcome_message'] = "Welcome back, " . $user['username'] . "! 🎉";
 
             header("Location: index.php");
             exit();
