@@ -1,9 +1,18 @@
 <?php
 session_start();
 
-// Use local shared DB connection
-require_once 'db_connect.php';
-$pdo = $conn;
+// DB connection
+$host = "sql100.infinityfree.com";       // MySQL Hostname
+$dbname = "if0_39795005_foodogram";      // Database Name
+$username = "if0_39795005";              // MySQL Username
+$password = "foodogram"; 
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
+}
 
 $errors = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -43,12 +52,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         $stmt = $pdo->prepare("INSERT INTO users 
-          (username, email, phone, password) 
-          VALUES (?, ?, ?, ?)");
-
+            (name, email, phone, password, notif_email, notif_sms, privacy) 
+            VALUES (?, ?, ?, ?, 1, 0, 'Public')");
+        
         if ($stmt->execute([$name, $email, $phone, $hashed_password])) {
-          $_SESSION['user_id'] = $pdo->lastInsertId();
-          $_SESSION['name'] = $name;
+            $_SESSION['user_id'] = $pdo->lastInsertId();
+            $_SESSION['name'] = $name;
             $_SESSION['logged_in'] = true;
             $_SESSION['welcome_message'] = "Welcome to Foodogram, $name!";
             header("Location: ../index.php");
