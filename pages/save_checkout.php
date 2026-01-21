@@ -3,6 +3,8 @@ session_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+require_once 'email_utils.php';
+
 // DB connection
 $host = "sql100.infinityfree.com";
 $dbname = "if0_39795005_foodogram";
@@ -51,11 +53,26 @@ $payment_method = "Cash on Delivery"; // Should come from form
 
 try {
     // Insert order into database
-    $stmt = $pdo->prepare("INSERT INTO orders (user_id, items, total_amount, delivery_address, payment_method) 
-                          VALUES (?, ?, ?, ?, ?)");
-    $stmt->execute([$user_id, $itemsText, $total, $delivery_address, $payment_method]);
-    
-    echo json_encode(['success' => true, 'message' => 'Order saved successfully', 'order_id' => $pdo->lastInsertId()]);
+    $stmt = $pdo->prepare("INSERT INTO orders (user_id, items, total_amount, delivery_address, payment_method, status)
+                          VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$user_id, $itemsText, $total, $delivery_address, $payment_method, 'Placed']);
+
+    $order_id = $pdo->lastInsertId();
+
+    // Send order confirmation email
+    $stmt = $pdo->prepare("SELECT email FROM users WHERE id = ?");
+    $stmt->execute([$user_id]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($user) {
+        $order_details = "<p><strong>Items:</strong> $itemsText</p>
+                         <p><strong>Total Amount:</strong> ₹" . number_format($total, 2) . "</p>
+                         <p><strong>Delivery Address:</strong> $delivery_address</p>
+                         <p><strong>Payment Method:</strong> $payment_method</p>";
+        sendOrderConfirmationEmail($user['email'], $order_id, $order_details);
+    }
+
+    echo json_encode(['success' => true, 'message' => 'Order saved successfully', 'order_id' => $order_id]);
 } catch (PDOException $e) {
     echo json_encode(['success' => false, 'message' => 'Database error: ' . $e->getMessage()]);
 }
