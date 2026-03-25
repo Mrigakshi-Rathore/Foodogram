@@ -218,29 +218,6 @@ CREATE TABLE reviews (
 
 ---
 
-## 📸 Screenshots / Demo
-
-<div align="center">
-
-
-**Home Page**  
-![Home Page](images/home.png)
-
-**Menu Page**  
-![Menu Page](images/menu.png)
-
-**About Us Page**  
-![About Us](images/aboutUs.png)
-
-**User Profile Page**  
-![Profile](images/profile.png)
-
-**Checkout Page**  
-![Checkout](images/checkout.png)
-
-</div>
-
----
 
 <h2>🧑‍💻 Project Admin:</h2>
 <table>
@@ -260,7 +237,7 @@ CREATE TABLE reviews (
 
 **👨‍💻 Developed By**  
 **❤️ Mrigakshi Rathore ❤️**  
-[Open an Issue](https://github.com/Mrigakshi-Rathore/Foodogram/issues) | [Watch Live Demo](https://foodogram.infinityfreeapp.com)
+[Open an Issue](https://github.com/Mrigakshi-Rathore/Foodogram/issues) 
 </div>
 
 
@@ -318,6 +295,5 @@ Please be respectful and inclusive. We follow a standard code of conduct to ensu
 If you have questions, issues, or suggestions:
 - **Open an Issue** on GitHub: [Issues](https://github.com/Mrigakshi-Rathore/Foodogram/issues)
 - **Contact the Developer**: Reach out via LinkedIn or email.
-- **Live Demo**: Check out the live version at [https://foodogram.infinityfreeapp.com](https://foodogram.infinityfreeapp.com)
 
 Let's make Foodogram even better together! 🍔
