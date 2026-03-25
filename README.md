@@ -6,7 +6,6 @@
 
 ![Website](https://img.shields.io/badge/Online%20Food%20Ordering-Project-blue?style=for-the-badge)
 
-[🌐 View Live Project](https://foodogram.infinityfreeapp.com)
 
 </div>
 
