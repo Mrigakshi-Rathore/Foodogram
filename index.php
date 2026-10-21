@@ -3,7 +3,6 @@ session_start(); // Keep this to maintain session functionality
 ?>
 <!DOCTYPE html>
 <!-- Rest of your home page HTML -->
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -566,7 +565,7 @@ session_start(); // Keep this to maintain session functionality
         <div class="row">
           <!-- Logo and Description -->
           <div class="col-md-4 mb-3">
-            <h5 class="glowbox" class="fw-bold" style="color: rgb(255, 200, 0); font-size: 30px;">🍽️ Foodogram</h5>
+            <h5 class="glowbox fw-bold" style="color: rgb(255, 200, 0); font-size: 30px;">🍽️ Foodogram</h5>
             <p>
               Your go-to destination for fresh, fast & delicious food delivered
               at your door.
@@ -629,14 +628,16 @@ session_start(); // Keep this to maintain session functionality
     <script>
 
   const toggleBtn = document.getElementById('modeToggle');
-  toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-    if (document.body.classList.contains('light-mode')) {
-      toggleBtn.textContent = "🌞 Light Mode";
-    } else {
-      toggleBtn.textContent = "🌙 Dark Mode";
-    }
-  });
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      if (document.body.classList.contains('light-mode')) {
+        toggleBtn.textContent = "🌞 Light Mode";
+      } else {
+        toggleBtn.textContent = "🌙 Dark Mode";
+      }
+    });
+  }
 
 setTimeout(function() {
     let alert = document.querySelector('.welcome-alert');
@@ -649,11 +650,13 @@ setTimeout(function() {
 
 
         const toggle = document.getElementById('darkModeToggle');
-        toggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            toggle.textContent =
-                document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : 'Dark Mode';
-        });
+        if (toggle) {
+            toggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                toggle.textContent =
+                    document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : 'Dark Mode';
+            });
+        }
     </script>
 </body>
 </html>  
